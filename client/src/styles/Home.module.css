@@ -1,0 +1,49 @@
+.countries{
+    display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    font-size: larger;
+    margin: 3rem 10rem;
+
+    transition: 1s;
+
+}
+
+
+select{
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 30px;
+    height: 35px;
+    width: 10%;
+
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.linkToForm{
+    border-radius: 30px;
+}
+.linkAndReload{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10rem;
+    background-color: rgba(34, 34, 34, 0.4);
+    border: 2px solid black;
+    padding: 15px;
+    margin: 0 75px ;
+    border-radius: 20px;
+}
+.filters{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 5rem;
+}
+
+button.active{
+    background-color: aqua;
+    border: red;
+    color: aliceblue;
+}

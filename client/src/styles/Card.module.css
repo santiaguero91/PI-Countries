@@ -1,0 +1,37 @@
+.card{
+    width: 300px;
+    height: 250x;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color:rgba(31, 29, 17, 0.9) ;
+    color: rgb(161, 187, 171);
+    font-weight: 500;
+
+    transition: 1s;
+    cursor: pointer;
+}
+
+
+
+
+.card:hover{
+    border: 2px solid rgb(110, 126, 33);
+    border-radius: 30px;
+
+}
+
+.stats{
+    display: flex;
+    justify-content: space-around;
+
+    background-color:rgba(139, 133, 77, 0.9) ;
+
+    font-weight: 700;
+}
+.id{
+    background-color:rgba(63, 61, 61, 0.616);
+    border-radius: 99px;
+    padding: 5px;
+
+}
