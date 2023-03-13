@@ -73,13 +73,12 @@ function handleClick(event){
   dispatch(getCountries());
 }
 
-    return (
-      <div className={style.background}>
-     {/*    <h1>HENRY COUNTRIES</h1> */}
+  return (
+  <div className={style.background}>
 
-<div className={style.linkAndReload} >
+  <div className={style.linkAndReload} >
         <button className={style.linkToForm}>
-        <Link to='/create' >CREAR Actividad</Link>
+        <Link to='/form' >CREAR Actividad</Link>
         </button>
         <SearchBar 
         className={style.searchBar}
@@ -87,8 +86,9 @@ function handleClick(event){
         <button onClick={e=>{handleClick(e)}}>
             Volver a cargar todos los paises
         </button>
-</div>
-      <div className={style.filters}>
+  </div>
+
+  <div className={style.filters}>
         <select onChange={e=> handleOrderByName(e)} >
           <option
           value="asc"
@@ -139,25 +139,19 @@ function handleClick(event){
           >Antarctica</option>
 
         </select>
-        </div>
+  </div>
 
 
-        <Pagination
-        countriesPerPage = {countriesPerPage}
-        allCountries ={allCountries.length}
-        pagination = {pagination}
-        currentPage={currentPage}
-        handleNext={handleNext}
-        setCurrentPage={setCurrentPage}
-        />
+  <Pagination
+  countriesPerPage = {countriesPerPage}
+  allCountries ={allCountries.length}
+  pagination = {pagination}
+  currentPage={currentPage}
+  handleNext={handleNext}
+  setCurrentPage={setCurrentPage}
+  />
         
-
-      
-
-
-
-
-<div className={style.countries}>
+  <div className={style.countries}>
 {
   currentCountries.map( el=>{
     return <Card
@@ -170,11 +164,11 @@ function handleClick(event){
     continent={el.continent}
     />
   })}
+  </div>
+
+
+
 </div>
-
-
-
-      </div>
-    )
+)
 }
 export default Landing;
