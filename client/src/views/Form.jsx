@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
-import {getActivities, postPokemon} from "../redux/actions"
+import {getCountries, postActivities} from "../redux/actions"
+import style from "../styles/Form.module.css"
 
 
 
@@ -10,7 +11,7 @@ import {getActivities, postPokemon} from "../redux/actions"
 
 const Form = () => {
     const dispatch = useDispatch()
-    const types = useSelector((state)=> state.types)
+    const allCountries = useSelector((state) => state.countries)
     const navigate = useNavigate()
 
     const [input, setInput] = useState({
@@ -18,7 +19,7 @@ const Form = () => {
         difficulty: "",
         duration: "",
         season: "",
-        country: "",
+        country: [],
     })
 
     const handleChange = (e) => {
@@ -29,22 +30,51 @@ const Form = () => {
         })
     }
 
+    const handleCheck = (e) => {
+        if(e.target.checked){
+            setInput({
+                ...input,
+                status: e.target.value
+            })
+            console.log(input);
+        }
+    }
 
+     const handleSelect = (e) => {
+          setInput({
+            ...input,
+            countries: [...input.countries,e.target.value]
+        })  
+    }
+
+     const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(postActivities(input));
+        alert("Activity was created successfully!!")
+        setInput({
+            name: "",
+            difficulty: "",
+            duration: "",
+            season: "",
+            country: [],
+        })
+        navigate('/home')
+    } 
 
 
     useEffect(()=>{
-        dispatch(getActivities())
+        dispatch(getCountries())
     }, [dispatch]);
 
 
 
     return (
-      <div>
-        <Link  to= "/home" ><button>VOLVER a HOME</button></Link>
+      <div className={style.background}>
+        <Link  to= "/home" ><button>Back to HOME</button></Link>
+        <form className={style.form}>
         <h1>Create New Activity</h1>
-        <form>
             <div>
-                <label>Name:</label>
+                <label>Activity Name:</label>
                 <input 
                 type="text"
                 value={input.name}
@@ -53,68 +83,68 @@ const Form = () => {
             />
             </div>
             <div>
-                <label>HEALTH:</label>
+                <label>Difficulty:</label>
                 <input 
                 type="text"
-                value={input.health}
-                name="health"
+                value={input.difficulty}
+                name="difficulty"
                 onChange={(e)=>handleChange(e)}
             />
             </div>
             <div>
-                <label>ATTACK:</label>
+                <label>Duration:</label>
                 <input 
                 type="text"
-                value={input.attack}
-                name="attack"
+                value={input.duration}
+                name="duration"
                 onChange={(e)=>handleChange(e)}
             />
             </div>
+
             <div>
-                <label>DEFENSE:</label>
-                <input 
-                type="text"
-                value={input.defense}
-                name="defense"
-                onChange={(e)=>handleChange(e)}
-            />
+                <label>Season:</label>
+                <label><input
+                    type="checkbox"
+                    name="Summer"
+                    value="Summer"
+                    onChange={(e)=>handleCheck(e)}
+                /> Summer</label>
+                <label><input
+                    type="checkbox"
+                    name="Autumn"
+                    value="Autumn"
+                    onChange={(e)=>handleCheck(e)}
+                />Autumn</label>
+                <label><input
+                    type="checkbox"
+                    name="Winter"
+                    value="Winter"
+                    onChange={(e)=>handleCheck(e)}
+                />Winter</label>
+                <label><input
+                    type="checkbox"
+                    name="Spring"
+                    value="Spring"
+                    onChange={(e)=>handleCheck(e)}
+                />Spring</label>
             </div>
+
+            <select onChange={(e)=>handleSelect(e)}>
+                
+                {
+                allCountries.map((country)=>(
+                <option value={country.name} key={country.id}> {country.name} </option>
+                ))
+                } 
+            </select>
+             {/* <ul><li>{input.allCountries.map(el=>el+" ")}</li></ul>   */}
+            
             <div>
-                <label>AGILITY:</label>
-                <input 
-                type="text"
-                value={input.agility}
-                name="agility"
-                onChange={(e)=>handleChange(e)}
-            />
+             <button onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
             </div>
-            <div>
-                <label>HEIGHT:</label>
-                <input 
-                type="text"
-                value={input.height}
-                name="height"
-                onChange={(e)=>handleChange(e)}
-            />
-            </div>
-            <div>
-                <label>WEIGHT:</label>
-                <input 
-                type="text" 
-                value={input.weight}
-                name="weight"
-                onChange={(e)=>handleChange(e)}
-            />
-            </div>
-            <div>
-                <label>IMAGEN:</label>
-                <input 
-                type="text"
-                value={input.img}
-                name="img"
-                onChange={(e)=>handleChange(e)}
-            />
-            </div>
+
+
+
         </form>
 
 

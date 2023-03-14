@@ -1,0 +1,17 @@
+.background{
+    display: grid;
+    place-content: center;
+}
+.form{
+    background-color: rgba(66, 66, 66, 0.301);
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 50px;
+    padding-bottom: 80px;
+    margin-top: 7rem;
+
+    color: aliceblue;
+    font-weight: 600;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
