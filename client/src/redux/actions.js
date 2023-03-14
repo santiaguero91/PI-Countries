@@ -66,7 +66,6 @@ export function getActivities(){
 export function postActivities(payload){
     return async function() {
         const response = await axios.post("http://localhost:3001/activities", payload)
-        console.log(response);
         return response
     }
 } 

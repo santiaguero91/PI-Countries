@@ -5,13 +5,9 @@ import {getCountries, postActivities} from "../redux/actions"
 import style from "../styles/Form.module.css"
 
 
-
-
-
-
 const Form = () => {
     const dispatch = useDispatch()
-    const allCountries = useSelector((state) => state.countries)
+    const countries = useSelector((state) => state.countries)
     const navigate = useNavigate()
 
     const [input, setInput] = useState({
@@ -34,17 +30,17 @@ const Form = () => {
         if(e.target.checked){
             setInput({
                 ...input,
-                status: e.target.value
-            })
-            console.log(input);
+                season: [...input.season,e.target.value]
+            }) 
         }
+        console.log(input);
     }
 
      const handleSelect = (e) => {
           setInput({
             ...input,
-            countries: [...input.countries,e.target.value]
-        })  
+            country: [...input.country,e.target.value]
+        }) 
     }
 
      const handleSubmit = (e) => {
@@ -129,21 +125,23 @@ const Form = () => {
                 />Spring</label>
             </div>
 
-            <select onChange={(e)=>handleSelect(e)}>
-                
+
+
+            <div className={style.selectCountries}>Select Countries:</div>
+            <select onChange={(e)=>handleSelect(e)}>                
                 {
-                allCountries.map((country)=>(
+                countries.map((country)=>(
                 <option value={country.name} key={country.id}> {country.name} </option>
                 ))
                 } 
             </select>
-             {/* <ul><li>{input.allCountries.map(el=>el+" ")}</li></ul>   */}
+
+               <div className={style.divblance}>
+                <ul><li>{input.country.map(el=>el+" , ")}</li></ul> </div>
             
             <div>
              <button onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
             </div>
-
-
 
         </form>
 
