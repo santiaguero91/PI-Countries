@@ -9,9 +9,15 @@
     font-weight: 500;
 
     transition: 1s;
+    
+}
+img{
+    border-radius: 1px;
+}
+img:hover{
+    border-radius: 60px;
     cursor: pointer;
 }
-
 
 
 

@@ -42,3 +42,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.alert{
+    background-color: black;
+    color: brown;
+}

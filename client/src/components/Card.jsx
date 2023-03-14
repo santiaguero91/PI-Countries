@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import style from "../styles/Card.module.css"
 
 const Card = ({imgFlag, name, id, population, capital, continent}) => {
@@ -11,7 +12,9 @@ const Card = ({imgFlag, name, id, population, capital, continent}) => {
                     
                 </div>
             <div>
+            <Link to={`/detail/${id}`}>
             <img src={imgFlag} alt="img not found" width="150px" height="100px"/>
+            </Link>
             </div>
             <p>Poblacion : {population}</p>
             <p>Capital : {capital}</p>

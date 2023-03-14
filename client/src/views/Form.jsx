@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import {getCountries, postActivities} from "../redux/actions"
 import style from "../styles/Form.module.css"
+import validate from "./FormValidation";
+
+
+
 
 
 const Form = () => {
@@ -18,12 +22,24 @@ const Form = () => {
         country: [],
     })
 
+    const [errors, setErrors] = useState({
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: "",
+        country: [],   
+    })
+
+
     const handleChange = (e) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value
-            
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 
     const handleCheck = (e) => {
@@ -77,6 +93,8 @@ const Form = () => {
                 name="name"
                 onChange={(e)=>handleChange(e)}
             />
+            {errors.name && <p className={style.alert} >{errors.name}</p>}
+
             </div>
             <div>
                 <label>Difficulty:</label>
@@ -86,6 +104,7 @@ const Form = () => {
                 name="difficulty"
                 onChange={(e)=>handleChange(e)}
             />
+            {errors.difficulty && <p className={style.alert} >{errors.difficulty}</p>}
             </div>
             <div>
                 <label>Duration:</label>
@@ -95,6 +114,7 @@ const Form = () => {
                 name="duration"
                 onChange={(e)=>handleChange(e)}
             />
+            {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
 
             <div>
@@ -123,23 +143,27 @@ const Form = () => {
                     value="Spring"
                     onChange={(e)=>handleCheck(e)}
                 />Spring</label>
+            {!input.season && <p className={style.alert} >{errors.season}</p>}
             </div>
 
 
 
+            {input.country && <p className={style.alert} >{errors.country}</p>}
             <div className={style.selectCountries}>Select Countries:</div>
+
             <select onChange={(e)=>handleSelect(e)}>                
                 {
-                countries.map((country)=>(
-                <option value={country.name} key={country.id}> {country.name} </option>
-                ))
-                } 
+                    countries.map((country)=>(
+                        <option value={country.name} key={country.id}> {country.name} </option>
+                        ))
+                    } 
             </select>
 
                <div className={style.divblance}>
                 <ul><li>{input.country.map(el=>el+" , ")}</li></ul> </div>
             
             <div>
+
              <button onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
             </div>
 

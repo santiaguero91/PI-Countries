@@ -82,6 +82,7 @@ function handleClick(event){
         </button>
         <SearchBar 
         className={style.searchBar}
+        setCurrentPage={setCurrentPage}
         />
         <button onClick={e=>{handleClick(e)}}>
             Volver a cargar todos los paises
