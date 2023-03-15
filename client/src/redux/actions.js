@@ -1,17 +1,7 @@
 import axios from "axios";
 
-
-export const GET_COUNTRIES = "GET_COUNTRIES"
-export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT"
-export const ORDER_BY_NAME = "ORDER_BY_NAME"
-export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION"
-export const GET_COUNTRY_NAME = "GET_COUNTRY_NAME"
-export const POST_ACTIVITY= "POST_ACTIVITY"
-export const GET_ACTIVITIES= "GET_ACTIVITIES"
-export const GET_COUNTRY_ID= "GET_COUNTRY_ID"
-
-
-
+ import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+ 
 
 export function getCountries(){
     return async function(dispatch) {
@@ -75,6 +65,7 @@ export function getActivities(){
         } catch (error){
             console.log(error);
         }
+        console.log(json.data);
     }
 }    
 

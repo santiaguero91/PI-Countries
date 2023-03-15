@@ -1,12 +1,10 @@
 .countries{
     display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
     font-size: larger;
-    margin: 3rem 10rem;
-
+    margin: 3rem 5rem;
     transition: 1s;
-
 }
 
 
@@ -47,3 +45,4 @@ button.active{
     border: red;
     color: aliceblue;
 }
+

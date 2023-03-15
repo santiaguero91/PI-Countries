@@ -1,23 +1,24 @@
 import React from "react";
 import style from "../styles/Card.module.css"
 
-const Card = ({id, name, difficulty, duration, season}) => {
+const activityCard = ({id, name, difficulty, duration, season, country}) => {
     return(
         <div className={style.card}>
             <div>
                 <div>
-                    <p>#{id}</p>
-                    <p>{name}</p>
+                    <h4>Actividad {id}</h4>
+                    <h3>{name}</h3>
                     
                 </div>
             <div>
             </div>
-            <p>difficulty : {difficulty}</p>
-            <p>duration : {duration}</p>
-            <p>season : {season}</p>
+            <p>Difficulty : {difficulty}</p>
+            <p>Duration : {duration} min</p>
+            <p>Season : {season}</p>
+            <p>{country}</p>
             </div>
         </div>
     )
 }
 
-export default Card
+export default activityCard

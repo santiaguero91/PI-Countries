@@ -160,7 +160,8 @@ const Form = () => {
             </select>
 
                <div className={style.divblance}>
-                <ul><li>{input.country.map(el=>el+" , ")}</li></ul> </div>
+                <h4>Paises Seleccionados</h4>
+                <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
             
             <div>
 

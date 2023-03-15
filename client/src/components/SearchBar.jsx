@@ -16,9 +16,9 @@ setCurrentPage(1)
 }
 
 function handleSubmit(event) {
-    event.preventDefault()
-    dispatch(searchCountryName(name))
-    }
+event.preventDefault()
+dispatch(searchCountryName(name))
+}
 
 
 

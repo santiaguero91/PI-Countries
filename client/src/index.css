@@ -9,7 +9,7 @@ body {
   background-color: rgb(134, 134, 132);
   background-image: url("./styles/countries.png");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: fixed;  
   
 }
 

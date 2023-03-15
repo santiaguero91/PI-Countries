@@ -13,6 +13,8 @@ const Details = () => {
     const { id } = useParams();
     const dispatch = useDispatch()
 
+
+
     useEffect(() =>{
         dispatch(getDetail(id))
     },[dispatch, id])
@@ -32,10 +34,10 @@ const Details = () => {
                 <div className={style.countryStats}>
                     <img className={style.imgFlag} alt="imgFlag" src={country[0].imgFlag}/>
                     <h1>Name: {country[0].name}</h1>
-                    <h1>Population: {country[0].population}</h1>
+                    <h1>Population: {country[0].population.toLocaleString('es-ES')}</h1>
                     <h1>Capital: {country[0].capital}</h1>
                     <h1>Continent: {country[0].continent}</h1>
-                    <h1>Area: {country[0].area}</h1>
+                    <h1>Area: {country[0].area.toLocaleString('es-ES')}</h1>
                 </div>
                 <div >
                     <h2>Activites</h2>

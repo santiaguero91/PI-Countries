@@ -1,11 +1,11 @@
 import React,{ useEffect, useState} from "react";
 import { useDispatch, useSelector} from "react-redux";
 import {getCountries, filterCountriesByContinent, orderByName, orderByPopulation} from "../redux/actions"
-import style from "../styles/Home.module.css"
 import  {Link} from "react-router-dom"
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar"
+import style from "../styles/Home.module.css"
 
 
 
@@ -57,11 +57,6 @@ const handleNext = (pageNumber)=> {
     setOrden(`Ordenado ${event.target.value}`)
    }
 
-
-
-
-
-
 //////////////////////////////
 
   useEffect(()=>{
@@ -79,6 +74,9 @@ function handleClick(event){
   <div className={style.linkAndReload} >
         <button className={style.linkToForm}>
         <Link to='/form' >CREAR Actividad</Link>
+        </button>
+        <button className={style.linkToForm}>
+        <Link to='/activities' >Go to Activities</Link>
         </button>
         <SearchBar 
         className={style.searchBar}
@@ -109,8 +107,6 @@ function handleClick(event){
           value="desc"
           >Population decrease</option>
       </select>
-
-
 
         <select onChange={e=> handleFilterContinent(e)}
         >
