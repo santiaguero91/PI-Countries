@@ -163,6 +163,9 @@ function handleClick(event){
     population={el.population}
     capital={el.capital}
     continent={el.continent}
+    area={el.area}
+    subregion={el.subregion}
+    activities={el.activities}
     />
   })}
   </div>
