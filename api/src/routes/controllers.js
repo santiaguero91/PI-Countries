@@ -18,7 +18,23 @@ const getApiInfo = async() => {
             population: el.population,   
             };
         });
-        Country.bulkCreate(ApiInfo);  
+         ApiInfo.forEach(element => {
+            Country.findOrCreate({
+                where:{name: element.name},
+                defaults:{
+                    id: element.id ,
+                    name: element.name ,
+                    imgFlag : element.imgFlag ,
+                    continent : element.continent ,
+                    capital : element.capital ,
+                    subregion : element.subregion ,
+                    area : element.area ,
+                    population:element.population ,
+                }
+            })
+        }); 
+
+        /* Country.bulkCreate(ApiInfo);   */
         return  ApiInfo
   }
 

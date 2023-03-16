@@ -25,6 +25,11 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.ENUM('Summer','Autumn','Winter','Spring')),
         allowNull: false,
     },
+    country:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+    }
+
     }, {
         timestamps: false,
         freezeTableName: true,

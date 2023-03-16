@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const axios = require ("axios");
 const { Activity, Country } = require("../db")
 
 const router = Router();
@@ -18,6 +17,7 @@ router.post("/", async (req,res) => {
     difficulty,
     duration,
     season,
+    country
 })
 
 let countryDB = await Country.findAll({where:{ name:country}})

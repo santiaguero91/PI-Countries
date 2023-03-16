@@ -1,6 +1,4 @@
 const { Router } = require('express');
-const axios = require ("axios");
-const { Activity, Country } = require("../db")
 const  rActivities = require("./rActivities")
 const  rCountries = require("./rCountries")
 
