@@ -25,11 +25,14 @@ const getApiInfo = require("./src/routes/controllers")
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then( async () => {
-/*   await getApiInfo(); */
+   /*  await getApiInfo();   */ 
   server.listen(3001,  async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
+
+
+
 
 
 

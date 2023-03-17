@@ -21,7 +21,8 @@ router.use("/activities", rActivities);
 
 /*    SET CLIENT_ENCODING TO 'utf8';    */
 /*        SELECT * FROM country;        */
+/*        SELECT * FROM countries;        */
 /*        SELECT * FROM activity;        */
-/*        SELECT * FROM activity;        */
+/*        SELECT * FROM activities;        */
 /*        SELECT * FROM activity_country;        */
 module.exports = router;
