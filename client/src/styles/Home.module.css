@@ -1,9 +1,9 @@
 .countries{
     display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
     font-size: larger;
-    margin: 3rem 5rem;
+    margin: 3rem 6rem;
     transition: 1s;
 }
 

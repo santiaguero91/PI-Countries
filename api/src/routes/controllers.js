@@ -38,6 +38,14 @@ const getApiInfo = async() => {
         return  ApiInfo
   }
 
+/*   const getDbInfo = async() => {
+    return await Country.findAll({
+        include:{
+            model: Activity,
+            attributes:["name", "id", "name", "difficulty", "duration", "season"],
+            through:{attributes: []},
+        }
+    })
+} */
 
-
-module.exports = getApiInfo;
+module.exports = getApiInfo ;

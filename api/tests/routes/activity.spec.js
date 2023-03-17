@@ -2,36 +2,29 @@
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
-const { Country, conn } = require('../../src/db.js');
-
+const { Activity, conn } = require('../../src/db.js');
 const agent = session(app);
-const country = {
-  name: 'Argentina',
-  id: 'ARG',
-  imgFlag: 'asd',
-  continent: 'Americas',
-  capital: 'BSAS',
-  population: 40000
+
+const activity = {
+    "id": 6,
+    "name": "Escalar el Everest",
+    "difficulty": "1",
+    "duration": 25,
+    "season": ["Summer"],
+    "country": ["China"]
 };
 
-describe('Country routes', () => {
+
+describe('Activity routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
-  beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(country)));
+  beforeEach(() => Activity.sync({ force: true })
+    .then(() => Activity.create(activity)));
   describe('GET /countries', () => {
     it('should get 200', () =>
       agent.get('/countries').expect(200)
     );
   });
 });
-
-
-
-
-
-
-
-
