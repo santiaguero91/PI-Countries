@@ -27,6 +27,19 @@ res.send("Actividad Creado con exito")
 
 
 router.get("/", async(req,res) => {
+    const name = req.query.name
+    let activitiesTotal = await Activity.findAll();
+    if(name){
+        let activityName = await activitiesTotal.filter(el =>el.name.toLowerCase().includes(name.toLowerCase()))
+        activityName.length ?
+        res.status(200).send(activityName):
+        res.status(404).send("Can't find such activity")
+    } else{
+        res.status(200).send(activitiesTotal)
+    }
+})
+
+router.get("/", async(req,res) => {
     try {
         let result = await Activity.findAll();
         if (!result.length) {
@@ -39,5 +52,23 @@ router.get("/", async(req,res) => {
         console.log(error)
     }
 });
+
+router.delete("/:id", async(req,res) => {
+    const {id} = req.params;
+    if(id){
+        Activity.destroy(
+        { where: { id: id }
+        });
+        res.status(200).send("activity deleted")
+    } else{
+        res.status(404).send("Can't find such actiity")
+    }
+}); 
+/* 
+router.put("/:id", async(req,res) => {
+    
+}); 
+
+ */
 
 module.exports = router;

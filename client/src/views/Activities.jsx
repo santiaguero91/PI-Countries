@@ -1,6 +1,6 @@
 import { useDispatch, useSelector} from "react-redux";
 import {getActivities} from "../redux/actions"
- import  {Link} from "react-router-dom" 
+import {Link} from "react-router-dom" 
 import ActivityCard from "../components/ActivityCard";
 import React,{ useEffect} from "react";
 import style from "../styles/Activities.module.css"
@@ -12,6 +12,8 @@ const Activities = () => {
 
     const dispatch = useDispatch();
     const allActivities = useSelector((state) => state.activities)
+
+
 
 
     useEffect(()=>{
@@ -45,6 +47,8 @@ const Activities = () => {
     />
 })} 
 </div>
+
+{}
 
 </div>
 

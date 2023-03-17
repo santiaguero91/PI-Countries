@@ -8,8 +8,10 @@ body {
 
   background-color: rgb(134, 134, 132);
   background-image: url("./styles/countries.png");
-  background-size: cover;
-  background-position: fixed;  
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover; 
+  background-attachment: fixed; 
   
 }
 
