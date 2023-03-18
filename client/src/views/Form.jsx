@@ -60,9 +60,15 @@ const Form = () => {
         }) 
     }
 
+const submitButton = document.getElementById("submitButton")
+
+if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0){
+    submitButton.disabled=false
+}
+
 
     const handleSubmit = (e) => {
-    if(input.name === "" || input.difficulty === "" || input.duration === "" || input.season.length === 0 || input.country.length === 0 ){
+     if(input.name === "" || input.difficulty === "" || input.duration === "" || input.season.length === 0 || input.country.length === 0 ){
             alert("falta nombre!!")
             return
     } else {
@@ -78,7 +84,7 @@ const Form = () => {
             country: [],
         })
     }
-         navigate('/home') 
+         navigate('/home')  
     } 
 
 
@@ -174,8 +180,7 @@ const Form = () => {
                 <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
             
             <div>
-
-             <button id="submitButton" /* disabled */ onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
+                 <button id="submitButton"  disabled onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>                
             </div>
 
         </form>

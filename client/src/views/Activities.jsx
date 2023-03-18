@@ -48,8 +48,8 @@ const Activities = () => {
     difficulty={el.difficulty}
     id={el.id}   
     duration={el.duration}
-    season={el.season}
-    country={el.country}
+    season={el.season.map(e=>e).join(", ")}
+    country={el.country.map(e=>e).join(", ")}
     handleDelete={()=> handleDelete(el.id)}
     />
 })} 
