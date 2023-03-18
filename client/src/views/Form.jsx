@@ -9,16 +9,17 @@ import validate from "./FormValidation";
 
 
 
+
 const Form = () => {
-    const dispatch = useDispatch()
-    const countries = useSelector((state) => state.countries)
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const countries = useSelector((state) => state.countries);
+    const navigate = useNavigate();
 
     const [input, setInput] = useState({
         name: "",
         difficulty: "",
         duration: "",
-        season: "",
+        season: [],
         country: [],
     })
 
@@ -26,7 +27,7 @@ const Form = () => {
         name: "",
         difficulty: "",
         duration: "",
-        season: "",
+        season: [],
         country: [],   
     })
 
@@ -59,19 +60,27 @@ const Form = () => {
         }) 
     }
 
-     const handleSubmit = (e) => {
+
+    const handleSubmit = (e) => {
+    if(input.name === "" || input.difficulty === "" || input.duration === "" || input.season.length === 0 || input.country.length === 0 ){
+            alert("falta nombre!!")
+            return
+    } else {
         e.preventDefault()
         dispatch(postActivities(input));
+        console.log(e);
         alert("Activity was created successfully!!")
         setInput({
             name: "",
             difficulty: "",
             duration: "",
-            season: "",
+            season: [],
             country: [],
         })
-        navigate('/home')
+    }
+         navigate('/home') 
     } 
+
 
 
     useEffect(()=>{
@@ -88,6 +97,7 @@ const Form = () => {
             <div>
                 <label>Activity Name:</label>
                 <input 
+                id="inputname"
                 type="text"
                 value={input.name}
                 name="name"
@@ -165,7 +175,7 @@ const Form = () => {
             
             <div>
 
-             <button onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
+             <button id="submitButton" /* disabled */ onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>
             </div>
 
         </form>

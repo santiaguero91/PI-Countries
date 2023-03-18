@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from "react-redux";
-import {getActivities} from "../redux/actions"
+import {getActivities, deleteActivities } from "../redux/actions"
 import {Link} from "react-router-dom" 
 import ActivityCard from "../components/ActivityCard";
 import React,{ useEffect} from "react";
@@ -11,9 +11,15 @@ import style from "../styles/Activities.module.css"
 const Activities = () => {
 
     const dispatch = useDispatch();
+    const refresh = () => window.location.reload(true)
     const allActivities = useSelector((state) => state.activities)
 
-
+    const handleDelete = (id) => {
+        console.log(id);
+         dispatch(deleteActivities(id)); 
+/*          alert("Activity deleted successfully!!") */         
+    refresh()
+    } 
 
 
     useEffect(()=>{
@@ -27,11 +33,11 @@ const Activities = () => {
     return (
 <div>
 
-    <h1>ACTIVITIES</h1>
-        <div>
+    <div>
     <button className={style.linkToHome}>
         <Link to='/home' >Return to Home</Link>
     </button>
+    <h1>ACTIVITIES</h1>
     </div>
     <div className={style.cardsContainer}>
      {
@@ -44,6 +50,7 @@ const Activities = () => {
     duration={el.duration}
     season={el.season}
     country={el.country}
+    handleDelete={()=> handleDelete(el.id)}
     />
 })} 
 </div>

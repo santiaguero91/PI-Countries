@@ -1,18 +1,12 @@
 import React from "react";
 import style from "../styles/Card.module.css"
 
-import allActivities from "../views/Activities"
 
-const activityCard = ({id, name, difficulty, duration, season, country}) => {
-
-
-    function onClose(id){
-        allActivities.filter(el=> el.id!==id)
-  }
+const activityCard = ({id, name, difficulty, duration, season, country, handleDelete}) => {
     
     return(
         <div className={style.card}>
-            <button onClick={onClose} className={style.closeButton} >X</button>
+            <button onClick={handleDelete} className={style.closeButton} >X</button>
             <div>
                 <div>
                     <h4>Actividad {id}</h4>

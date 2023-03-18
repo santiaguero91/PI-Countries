@@ -1,7 +1,7 @@
 /* import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_ID} from "./actions";
  */
 
-import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, DELETE_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
  
 
 const initialState = {
@@ -85,7 +85,12 @@ const rootReducer =(state=initialState, action) => {
         return{
             ...state,
         }
-
+        case DELETE_ACTIVITIES:
+            return{
+            ...state,
+            activities: action.payload
+            }
+        
         case GET_ACTIVITIES:
         return{
             ...state,

@@ -80,6 +80,20 @@ export function postActivities(payload){
     }
 } 
 
+export function deleteActivities(id){
+    return async function() {
+        try{       
+        const response = await axios.delete("http://localhost:3001/activities/"+id)
+        return response
+    } catch (error){
+        console.log(error);
+    }
+    }
+} 
+
+
+
+
 export function getDetail(id){
     return async function(dispatch) {
         try{
