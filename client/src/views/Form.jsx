@@ -60,33 +60,29 @@ const Form = () => {
         }) 
     }
 
+
+const handleSubmit = (e) => {
+     e.preventDefault() 
+    dispatch(postActivities(input));
+/*      alert("Activity was created successfully!!")    */
+    setInput({
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: [],
+        country: [],
+    })
+
+    navigate('/home')   
+} 
+
 const submitButton = document.getElementById("submitButton")
-
 if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0){
-    submitButton.disabled=false
+     console.log(input);    
+ submitButton.disabled=false
+ submitButton.addEventListener("click", handleSubmit) 
+
 }
-
-
-    const handleSubmit = (e) => {
-     if(input.name === "" || input.difficulty === "" || input.duration === "" || input.season.length === 0 || input.country.length === 0 ){
-            alert("falta nombre!!")
-            return
-    } else {
-        e.preventDefault()
-        dispatch(postActivities(input));
-        console.log(e);
-        alert("Activity was created successfully!!")
-        setInput({
-            name: "",
-            difficulty: "",
-            duration: "",
-            season: [],
-            country: [],
-        })
-    }
-         navigate('/home')  
-    } 
-
 
 
     useEffect(()=>{
@@ -133,7 +129,29 @@ if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && inpu
             {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
 
-            <div>
+
+
+
+
+            <div className={style.selectCountries}>Select Countries:</div>
+
+            <select onChange={(e)=>handleSelect(e)}>                
+                {
+                    countries.map((country)=>(
+                        <option value={country.name} key={country.id}> {country.name} </option>
+                        ))
+                    } 
+
+            
+            </select>
+            {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
+
+               <div className={style.divblance}>
+                <h4>Paises Seleccionados</h4>
+                <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
+            
+
+                <div>
                 <label>Season:</label>
                 <label><input
                     type="checkbox"
@@ -159,28 +177,12 @@ if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && inpu
                     value="Spring"
                     onChange={(e)=>handleCheck(e)}
                 />Spring</label>
-            {!input.season && <p className={style.alert} >{errors.season}</p>}
+            {input.season.length === 0 && <p className={style.alert} >{errors.season}</p>}
             </div>
 
 
-
-            {input.country && <p className={style.alert} >{errors.country}</p>}
-            <div className={style.selectCountries}>Select Countries:</div>
-
-            <select onChange={(e)=>handleSelect(e)}>                
-                {
-                    countries.map((country)=>(
-                        <option value={country.name} key={country.id}> {country.name} </option>
-                        ))
-                    } 
-            </select>
-
-               <div className={style.divblance}>
-                <h4>Paises Seleccionados</h4>
-                <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
-            
             <div>
-                 <button id="submitButton"  disabled onClick={(e)=>handleSubmit(e)} type= "submit">CREATE ACTIVITY</button>                
+                 <button id="submitButton"  disabled  /* onClick={(e)=>handleSubmit(e)}  */type= "submit">CREATE ACTIVITY</button>                
             </div>
 
         </form>

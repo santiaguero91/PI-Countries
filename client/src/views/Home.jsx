@@ -43,6 +43,7 @@ const handleNext = (pageNumber)=> {
     setCurrentPage(1);
    }
 
+
    function handleOrderByName(event){
     event.preventDefault()
     dispatch(orderByName(event.target.value))
@@ -140,16 +141,6 @@ function handleClick(event){
 
         </select>
   </div>
-
-
-  <Pagination
-  countriesPerPage = {countriesPerPage}
-  allCountries ={allCountries.length}
-  pagination = {pagination}
-  currentPage={currentPage}
-  handleNext={handleNext}
-  setCurrentPage={setCurrentPage}
-  />
         
   <div className={style.countries}>
 {
@@ -169,7 +160,14 @@ function handleClick(event){
   })}
   </div>
 
-
+  <Pagination
+  countriesPerPage = {countriesPerPage}
+  allCountries ={allCountries.length}
+  pagination = {pagination}
+  currentPage={currentPage}
+  handleNext={handleNext}
+  setCurrentPage={setCurrentPage}
+  />
 
 </div>
 )

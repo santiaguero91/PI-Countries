@@ -16,7 +16,7 @@ const activityCard = ({id, name, difficulty, duration, season, country, handleDe
             <div>
             </div>
             <p>Difficulty : {difficulty}</p>
-            <p>Duration : {duration} min</p>
+            <p>Duration : {duration} hours</p>
             <p>Season : {season}</p>
             <p>{country}</p>
             <p></p>
