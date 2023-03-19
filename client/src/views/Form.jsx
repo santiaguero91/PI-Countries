@@ -78,10 +78,7 @@ const handleSubmit = (e) => {
      navigate('/home')    
      alert("Activity was created successfully!!")  
 } 
-
-
-
-    useEffect(()=>{
+     useEffect(()=>{
         dispatch(getCountries())
     }, [dispatch]);
 
