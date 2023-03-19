@@ -50,7 +50,7 @@ const Form = () => {
                 season: [...input.season,e.target.value]
             }) 
         }
-        console.log(input);
+
     }
 
      const handleSelect = (e) => {
@@ -63,8 +63,10 @@ const Form = () => {
 
 const handleSubmit = (e) => {
      e.preventDefault() 
+     console.log(input);
     dispatch(postActivities(input));
-/*      alert("Activity was created successfully!!")    */
+   
+       
     setInput({
         name: "",
         difficulty: "",
@@ -73,16 +75,10 @@ const handleSubmit = (e) => {
         country: [],
     })
 
-    navigate('/home')   
+     navigate('/home')    
+     alert("Activity was created successfully!!")  
 } 
 
-const submitButton = document.getElementById("submitButton")
-if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0){
-     console.log(input);    
- submitButton.disabled=false
- submitButton.addEventListener("click", handleSubmit) 
-
-}
 
 
     useEffect(()=>{
@@ -128,11 +124,6 @@ if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && inpu
             />
             {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
-
-
-
-
-
             <div className={style.selectCountries}>Select Countries:</div>
 
             <select onChange={(e)=>handleSelect(e)}>                
@@ -180,9 +171,11 @@ if(input.name !== "" && input.difficulty !== "" && input.duration !== "" && inpu
             {input.season.length === 0 && <p className={style.alert} >{errors.season}</p>}
             </div>
 
-
             <div>
-                 <button id="submitButton"  disabled  /* onClick={(e)=>handleSubmit(e)}  */type= "submit">CREATE ACTIVITY</button>                
+                {
+                    (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) && 
+                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">CREATE ACTIVITY</button>                
+                }
             </div>
 
         </form>
