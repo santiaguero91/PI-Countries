@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from "react-redux";
-import {getActivities, deleteActivities } from "../redux/actions"
+import {getActivities, deleteActivities, filterActivitiesBySeason } from "../redux/actions"
 import {Link} from "react-router-dom" 
 import ActivityCard from "../components/ActivityCard";
 import React,{ useEffect} from "react";
@@ -21,6 +21,10 @@ const Activities = () => {
     refresh()
     } 
 
+    function handleFilterSeasons(event){
+        dispatch(filterActivitiesBySeason(event.target.value))
+ 
+       }
 
     useEffect(()=>{
         dispatch(getActivities())
@@ -48,6 +52,26 @@ const Activities = () => {
     <button className={style.linkToForm}>
         <Link to='/modactivities' >Modify Activity</Link>
     </button>
+
+    <select onChange={e=> handleFilterSeasons(e)}
+        >
+          <option
+          value="All"
+          >All Seasons</option>
+          <option
+          value="Summer"
+          >Summer</option>
+          <option
+          value="Autumn"
+          >Autumn</option>
+          <option
+          value="Winter"
+          >Winter</option>
+          <option
+          value="Spring"
+          >Spring</option>
+        </select>
+
 
     </div>
     <div className={style.cardsContainer}>

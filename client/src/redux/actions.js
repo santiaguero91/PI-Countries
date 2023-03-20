@@ -1,6 +1,6 @@
 import axios from "axios";
 
- import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+ import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
  
 
 export function getCountries(){
@@ -24,6 +24,17 @@ export function filterCountriesByContinent(payload){
         payload
     }
 } 
+
+export function filterActivitiesBySeason(payload){
+    console.log(payload);
+    return{
+        type: FILTER_BY_SEASON,
+        payload
+    }
+} 
+
+
+
 
 export function orderByName(payload){
     return{

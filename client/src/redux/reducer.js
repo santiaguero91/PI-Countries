@@ -1,13 +1,14 @@
 /* import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_ID} from "./actions";
  */
 
-import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, DELETE_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, DELETE_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
  
 
 const initialState = {
     countries: [],
     allCountries:[],
     activities:[],
+    allActivities:[],
     detail: [],
 }
 
@@ -28,6 +29,16 @@ const rootReducer =(state=initialState, action) => {
                 ...state,
                 countries: continentFiltered
         }
+         case FILTER_BY_SEASON:
+            const allActivities = state.allActivities
+            const activityFiltered = action.payload === "All"
+            ? allActivities 
+            : allActivities.filter(el => el.season.includes(action.payload))
+            return {
+                ...state,
+                activities: activityFiltered
+        } 
+
         case ORDER_BY_NAME:
             let sortedArr = action.payload === "asc" ? 
             state.countries.sort(function (a, b){
@@ -94,7 +105,8 @@ const rootReducer =(state=initialState, action) => {
         case GET_ACTIVITIES:
         return{
             ...state,
-            activities: action.payload
+            activities: action.payload,
+            allActivities: action.payload
         }
         case GET_COUNTRY_ID:
             return{
