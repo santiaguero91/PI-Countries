@@ -73,6 +73,7 @@ export function getActivities(){
                 type: GET_ACTIVITIES,
                 payload: json.data 
             })
+            
         } catch (error){
             console.log(error);
         }
@@ -90,6 +91,20 @@ export function postActivities(payload){
     }
     }
 } 
+
+export function putActivities(payload){
+    const name = payload.name
+    return async function() {
+        try{       
+            console.log(payload);
+        const response = await axios.put("http://localhost:3001/activities?name="+ name, payload)
+        return response
+    } catch (error){
+        console.log(error);
+    }
+    }
+} 
+
 
 export function deleteActivities(id){
     return async function() {

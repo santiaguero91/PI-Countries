@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
-import {getCountries, postActivities} from "../redux/actions"
+import {getCountries, putActivities} from "../redux/actions"
 import style from "../styles/Form.module.css"
 import validate from "./FormValidation";
 
@@ -63,8 +63,7 @@ const ModifyActivity = () => {
 
 const handleSubmit = (e) => {
      e.preventDefault() 
-     console.log(input);
-    dispatch(postActivities(input));
+    dispatch(putActivities(input));
    
        
     setInput({
@@ -75,9 +74,10 @@ const handleSubmit = (e) => {
         country: [],
     })
 
-     navigate('/activities')    
-     alert("Activity was created successfully!!")  
+    alert("Activity was modify!!")  
+    navigate('/activities')    
 } 
+
      useEffect(()=>{
         dispatch(getCountries())
     }, [dispatch]);
@@ -142,7 +142,6 @@ const handleSubmit = (e) => {
                <div className={style.divblance}>
                 <h4>Paises Seleccionados</h4>
                 <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
-            
 
                 <div>
                 <label>Select Season:</label>
@@ -176,7 +175,7 @@ const handleSubmit = (e) => {
             <div>
                 {
                     (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) && 
-                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">CREATE ACTIVITY</button>                
+                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button>                
                 }
             </div>
 

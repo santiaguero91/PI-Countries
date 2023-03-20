@@ -1,7 +1,7 @@
 /* import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_ID} from "./actions";
  */
 
-import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, DELETE_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, POST_ACTIVITY, GET_ACTIVITIES, DELETE_ACTIVITIES, GET_COUNTRY_ID, PUT_ACTIVITY} from "./action-types";
  
 
 const initialState = {
@@ -96,6 +96,12 @@ const rootReducer =(state=initialState, action) => {
         return{
             ...state,
         }
+
+        case PUT_ACTIVITY:
+            return{
+                ...state,
+            }
+
         case DELETE_ACTIVITIES:
             return{
             ...state,
