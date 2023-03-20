@@ -1,5 +1,5 @@
 import './App.css';
-import  {Home, Landing, Form, Details, Activities}  from "./views/vIndex"
+import  {Home, Landing, Form, Details, Activities,ModifyActivity}  from "./views/vIndex"
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <Route exact path="/form" element={<Form />} /> 
       <Route exact path="detail/:id" element={<Details/>}  />
       <Route exact path="/activities" element={<Activities/>}  />
+      <Route exact path="/modactivities" element={<ModifyActivity/>}  />
       </Routes>
 
     </div>

@@ -77,9 +77,6 @@ function handleClick(event){
 
   <div className={style.linkAndReload} >
         <button className={style.linkToForm}>
-        <Link to='/form' >CREAR Actividad</Link>
-        </button>
-        <button className={style.linkToForm}>
         <Link to='/activities' >Go to Activities</Link>
         </button>
         <SearchBar 

@@ -34,10 +34,21 @@ const Activities = () => {
 <div>
 
     <div>
+    <div className={style.h1}>
+    <h2>ACTIVITIES</h2>
+    </div>
     <button className={style.linkToHome}>
         <Link to='/home' >Return to Home</Link>
     </button>
-    <h1>ACTIVITIES</h1>
+    
+    <button className={style.linkToForm}>
+        <Link to='/form' >Create Activity</Link>
+    </button>
+
+    <button className={style.linkToForm}>
+        <Link to='/modactivities' >Modify Activity</Link>
+    </button>
+
     </div>
     <div className={style.cardsContainer}>
      {

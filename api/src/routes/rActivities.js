@@ -64,11 +64,48 @@ router.delete("/:id", async(req,res) => {
         res.status(404).send("Can't find such actiity")
     }
 }); 
-/* 
-router.put("/:id", async(req,res) => {
-    
+
+
+
+router.put("/", async(req,res) => {
+    const name = req.query.name
+        let {
+        difficulty,
+        duration,
+        season,
+        country,
+   } = req.body;
+
+if(!difficulty || !duration || !season || !country ) {
+    return res
+    .status(404)
+    .json({error: "Falta llenar alguno de los parametros"})
+}
+
+    let activitiesTotal = await Activity.findAll();
+    if(name){
+        let activityName = await activitiesTotal.filter(el =>el.name.toLowerCase() === name.toLowerCase())
+        await Activity.update({
+            id: activityName[0].id,
+            difficulty: difficulty,
+            duration: duration,
+            season: season,
+            country: country
+            },
+            { where: { 
+                name: name 
+            }
+        }
+        )
+        activityName ?        
+        res.status(200).send(activityName):
+        res.status(404).send("Can't find such activity")
+    } else{
+        res.status(200).send(activitiesTotal)
+    }
+        
 }); 
 
- */
+
 
 module.exports = router;

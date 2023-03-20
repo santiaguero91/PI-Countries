@@ -10,7 +10,7 @@ import validate from "./FormValidation";
 
 
 
-const Form = () => {
+const ModifyActivity = () => {
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries);
     const navigate = useNavigate();
@@ -88,11 +88,12 @@ const handleSubmit = (e) => {
       <div className={style.background}>
         <Link  to= "/activities" ><button>Back to Activities</button></Link>
         <form className={style.form}>
-        <h1>Create New Activity</h1>
+        <h1>Modify Activity</h1>
             <div>
-                <label>Activity Name:</label>
+                <label>Activity to modify:</label>
                 <input 
                 id="inputname"
+                placeholder="Name"
                 type="text"
                 value={input.name}
                 name="name"
@@ -101,18 +102,22 @@ const handleSubmit = (e) => {
             {errors.name && <p className={style.alert} >{errors.name}</p>}
 
             </div>
+
+<hr></hr>
+
             <div>
-                <label>Difficulty:</label>
+                <label>New Difficulty:</label>
                 <input 
                 type="number"
                 value={input.difficulty}
                 name="difficulty"
+                placeholder="1 to 5"
                 onChange={(e)=>handleChange(e)}
             />
             {errors.difficulty && <p className={style.alert} >{errors.difficulty}</p>}
             </div>
             <div>
-                <label>Duration:</label>
+                <label>New Duration:</label>
                 <input 
                 type="number"
                 value={input.duration}
@@ -121,7 +126,7 @@ const handleSubmit = (e) => {
             />
             {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
-            <div className={style.selectCountries}>Select Countries:</div>
+            <div className={style.selectCountries}>Select New Countries:</div>
 
             <select onChange={(e)=>handleSelect(e)}>                
                 {
@@ -140,7 +145,7 @@ const handleSubmit = (e) => {
             
 
                 <div>
-                <label>Season:</label>
+                <label>Select Season:</label>
                 <label><input
                     type="checkbox"
                     name="Summer"
@@ -181,4 +186,4 @@ const handleSubmit = (e) => {
       </div>
     )
 }
-export default Form;
+export default ModifyActivity;

@@ -7,6 +7,8 @@
     color: rgb(161, 187, 171);
     font-weight: 500;
     transition: 1s;
+
+
 }
 img{
     border-radius: 1px;
@@ -32,4 +34,3 @@ img:hover{
     border-radius: 99px;
     padding: 5px;
 }
-

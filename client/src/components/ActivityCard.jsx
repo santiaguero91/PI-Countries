@@ -1,15 +1,21 @@
 import React from "react";
 import style from "../styles/Card.module.css"
+import { useLocation } from "react-router-dom"
 
 
-const activityCard = ({id, name, difficulty, duration, season, country, handleDelete}) => {
+const ActivityCard = ({id, name, difficulty, duration, season, country, handleDelete}) => {
     
+    const location = useLocation();
     return(
         <div className={style.card}>
-            <button onClick={handleDelete} className={style.closeButton} >X</button>
+
+        {location.pathname === "/activities" &&
+        <button onClick={handleDelete} className={style.closeButton} >X</button> 
+        }
+
             <div>
                 <div>
-                    <h4>Actividad {id}</h4>
+                    {/* <h4>Actividad {id}</h4> */}
                     <h3>{name}</h3>
                     
                 </div>
@@ -18,11 +24,11 @@ const activityCard = ({id, name, difficulty, duration, season, country, handleDe
             <p>Difficulty : {difficulty}</p>
             <p>Duration : {duration} hours</p>
             <p>Season : {season}</p>
-            <p>{country}</p>
+            {location.pathname === "/activities" && <p>Countries : {country}</p> }
             <p></p>
             </div>
         </div>
     )
 }
 
-export default activityCard
+export default ActivityCard
