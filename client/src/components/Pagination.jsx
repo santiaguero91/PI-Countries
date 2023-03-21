@@ -26,6 +26,12 @@ export default function Pagination ({ countriesPerPage, allCountries, pagination
 
     return(
         <nav> 
+            <button
+            onClick={() => handlePreviousPage()} 
+            >Previous</button>
+            <button
+            onClick={() => handleNextPage()} 
+            >Next</button>
             <div>
             <ul className={style.pagination}>
                 {
@@ -40,12 +46,7 @@ export default function Pagination ({ countriesPerPage, allCountries, pagination
                     
                 ))}
             </ul>
-            <button
-            onClick={() => handlePreviousPage()} 
-            >Previous</button>
-            <button
-            onClick={() => handleNextPage()} 
-            >Next</button>
+
 
 
             </div>

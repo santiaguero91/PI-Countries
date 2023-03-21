@@ -33,9 +33,6 @@ export function filterActivitiesBySeason(payload){
     }
 } 
 
-
-
-
 export function orderByName(payload){
     return{
         type: ORDER_BY_NAME,
@@ -49,7 +46,6 @@ export function orderByPopulation(payload){
         payload
     }
 }
-
 
 export function searchCountryName(name){
     return async function(dispatch) {
@@ -105,7 +101,6 @@ export function putActivities(payload){
     }
 } 
 
-
 export function deleteActivities(id){
     return async function() {
         try{       
@@ -116,9 +111,6 @@ export function deleteActivities(id){
     }
     }
 } 
-
-
-
 
 export function getDetail(id){
     return async function(dispatch) {
