@@ -5,47 +5,35 @@ const app = require('../../src/app.js');
 const { Country, conn } = require('../../src/db.js');
 
 
-/* 
+
 
 const agent = session(app);
-const country = {
-  name: 'Argentina',
-  id: 'ARG',
-  imgFlag: 'asd',
-  continent: 'Americas',
-  capital: 'BSAS',
-  population: 40000
-};
 
-describe('Country routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Country.sync({ force: false })
-    .then(() => Country.create(country)));
-  describe('GET /countries', () => {
-    it('should get 250', () =>
-      agent.get('/countries').expect(250)
-    );
-  });
-
-  
-  it("Responde con el nombre del Pais",  () => {
+describe('Countries routes ', () => {  
+  it("Responde con los datos de Argentina al pedido por params",  () => {
       return agent.get("/countries/ARG")
       .expect(200)
       .expect((res)=> {
-        console.log(res.body)
+       /*  console.log(res.body) */
        expect(res.body[0].name).equal("Argentina");
-       expect(res.body[0].imgFlag).equal("asd");
-       expect(res.body[0].continent).equal("Americas");
-       expect(res.body[0].capital).equal("BSAS");
+       expect(res.body[0].imgFlag).equal("https://flagcdn.com/ar.svg");
+       expect(res.body[0].continent).equal("South America");
+       expect(res.body[0].capital).equal("Buenos Aires");
       });      
   });
 
+  it("Responde con los datos de Colombia al pedido por query",  () => {
+    return agent.get("/countries?name=col")
+    .expect(200)
+    .expect((res)=> {
+     /*  console.log(res.body) */
+     expect(res.body[0].name).equal("Colombia");
+     expect(res.body[0].imgFlag).equal("https://flagcdn.com/co.svg");
+     expect(res.body[0].continent).equal("South America");
+     expect(res.body[0].capital).equal("Bogotá");
+    });      
+});
 
 });
 
-
- */
 

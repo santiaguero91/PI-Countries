@@ -174,8 +174,9 @@ const handleSubmit = (e) => {
 
             <div>
                 {
-                    (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) && 
-                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button>                
+                    (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) ? 
+                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button> :
+                 <button id="submitButton" disabled  onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button>
                 }
             </div>
 

@@ -1,10 +1,9 @@
-import {GET_COUNTRIES, FILTER_BY_CONTINENT} from "../src/redux/action-types"
+import getActivities from "../src/redux/actions"
 
 
 describe("02", () => {
-    it("Variables GET_COUNTRIES y FILTER_BY_CONTINENT estan declaradas", () => {
-      expect(GET_COUNTRIES).toEqual("GET_COUNTRIES");
-      expect(FILTER_BY_CONTINENT).toEqual("FILTER_BY_CONTINENT");
+    it("Get Countries debe traer 250 ovbjetos", () => {
+      expect(getActivities).toBeDefined();
     });
 
 

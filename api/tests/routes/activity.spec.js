@@ -5,42 +5,53 @@ const app = require('../../src/app.js');
 const { Activity, conn } = require('../../src/db.js');
 const agent = session(app);
 
-const activity = {
-    "id": 9,
-    "name": "Escalar el Everest",
+const activityTest = {
+    "name": "Actividad de Test",
     "difficulty": "1",
     "duration": 25,
-    "season": ["Summer"],
-    "country": ["China"]
-};
+    "season": [
+      "Summer"
+    ],
+    "country": [
+      "China"
+    ]
+}; 
 
-/* 
-
-describe('Activity routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Activity.sync({ force: false })
-    .then(() => Activity.create(activity)));
-  describe('GET /countries', () => {
-    it('should get 200', () =>
-      agent.get('/countries').expect(200)
-    );
-  });
+describe('Activity Get route ', () => {  
+it("Creates test activity", async () => {
+  const response = await agent.post("/activities").send(activityTest)
+  .expect((response)=> {
+  expect(response.status).equal(200);
+  });      
 });
- */
+
+  
+it("Gets test activity data",  () => {
+    return agent.get("/activities?name=actividad")
+    .expect((res)=> {
+     /*  console.log(res.body) */
+     expect(res.body[0].name).equal("Actividad de Test");
+     expect(res.body[0].difficulty).equal("1");
+     expect(res.body[0].duration).equal(25);
+     expect(res.body[0].season[0]).equal("Summer");
+     expect(res.body[0].country[0]).equal("China");
+     activityTest.id = res.body[0].id
+    });      
+});
+
+  it("Deletes test activity", async () => {
+  await agent.delete("/activities/"+activityTest.id)
+  .expect((response)=> {
+  expect(response.status).equal(200);
+  });      
+});  
 
 
-it("1 | POST a la ruta /activities", async () => {
-  const activity = {
-    "id": 9,
-    "name": "Escalar el Everest",
-    "difficulty": "1",
-    "duration": 25,
-    "season": ["Summer"],
-    "country": ["China"]
-};
-  const response = await agent.post("/activities").send(activity);
-  expect(response.status).toBeLessThan(300);
-})
+
+  
+
+
+
+
+
+});
