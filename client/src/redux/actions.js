@@ -3,15 +3,11 @@ import axios from "axios";
 import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
 
 
-export function add(a,b){
-    return a + b;
-}
-
-
 export function getCountries(){
     return async function(dispatch) {
         try {
         let json = await axios.get("http://localhost:3001/countries");
+        console.log(json.data);
         return dispatch({
             type: GET_COUNTRIES,
             payload: json.data
@@ -23,7 +19,6 @@ export function getCountries(){
 }
 
 export function filterCountriesByContinent(payload){
-    console.log(payload);
     return{
         type: FILTER_BY_CONTINENT,
         payload
@@ -31,7 +26,6 @@ export function filterCountriesByContinent(payload){
 } 
 
 export function filterActivitiesBySeason(payload){
-    console.log(payload);
     return{
         type: FILTER_BY_SEASON,
         payload
