@@ -1,7 +1,12 @@
 import axios from "axios";
 
- import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
- 
+import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
+
+
+export function add(a,b){
+    return a + b;
+}
+
 
 export function getCountries(){
     return async function(dispatch) {
