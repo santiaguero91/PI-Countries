@@ -3,7 +3,7 @@ import style from "../styles/Card.module.css"
 import { useLocation } from "react-router-dom"
 
 
-const ActivityCard = ({id, name, difficulty, duration, season, country, handleDelete}) => {
+const ActivityCard = ({id, name, difficulty, duration, season, country, handleDelete, img}) => {
     
     const location = useLocation();
     return(
@@ -12,6 +12,11 @@ const ActivityCard = ({id, name, difficulty, duration, season, country, handleDe
         {location.pathname === "/activities" &&
         <button onClick={handleDelete} className={style.closeButton} >X</button> 
         }
+
+        {
+         (img) && <img src={img} alt="activ img"/>
+        }
+        
 
             <div>
                 <div>
@@ -25,7 +30,7 @@ const ActivityCard = ({id, name, difficulty, duration, season, country, handleDe
             <p>Duration : {duration} hours</p>
             <p>Season : {season}</p>
             {location.pathname === "/activities" && <p>Countries : {country}</p> }
-            <p></p>
+            
             </div>
         </div>
     )

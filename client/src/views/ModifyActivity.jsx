@@ -21,6 +21,7 @@ const ModifyActivity = () => {
         duration: "",
         season: [],
         country: [],
+        img: "",
     })
 
     const [errors, setErrors] = useState({
@@ -28,7 +29,8 @@ const ModifyActivity = () => {
         difficulty: "",
         duration: "",
         season: [],
-        country: [],   
+        country: [], 
+        img: "",  
     })
 
 
@@ -72,6 +74,7 @@ const handleSubmit = (e) => {
         duration: "",
         season: [],
         country: [],
+        img: "",
     })
 
     alert("Activity was modify!!")  
@@ -113,16 +116,19 @@ const handleSubmit = (e) => {
                 name="difficulty"
                 placeholder="1 to 5"
                 onChange={(e)=>handleChange(e)}
+                min="1" max="5"
             />
             {errors.difficulty && <p className={style.alert} >{errors.difficulty}</p>}
             </div>
             <div>
                 <label>New Duration:</label>
                 <input 
+                placeholder="Select hours"
                 type="number"
                 value={input.duration}
                 name="duration"
                 onChange={(e)=>handleChange(e)}
+                min="1" max="72"
             />
             {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
@@ -171,7 +177,17 @@ const handleSubmit = (e) => {
                 />Spring</label>
             {input.season.length === 0 && <p className={style.alert} >{errors.season}</p>}
             </div>
-
+            <div>
+                <label>Agregar Imagen:</label>
+                <input 
+                id="inputimg"
+                type="text"
+                value={input.img}
+                name="img"
+                onChange={(e)=>handleChange(e)}
+                title="img"
+            />
+            </div>
             <div>
                 {
                     (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) ? 

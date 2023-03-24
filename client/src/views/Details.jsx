@@ -43,7 +43,7 @@ const Details = () => {
                     <h2>Activites</h2>
                     <div className={style.countryActivities}>
                 {
-                    country[0].activities.map(({id, name, difficulty, duration, season})=>{
+                    country[0].activities.map(({id, name, difficulty, duration, season, img})=>{
                         return <ActivityCard
                         key={id}
                         id={id}
@@ -51,6 +51,7 @@ const Details = () => {
                         difficulty={difficulty}
                         duration={duration}
                         season={season}
+                        img={img}
                         />
                     })
                 }

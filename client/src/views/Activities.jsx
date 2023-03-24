@@ -17,7 +17,6 @@ const Activities = () => {
     const handleDelete = (id) => {
         console.log(id);
          dispatch(deleteActivities(id)); 
-/*          alert("Activity deleted successfully!!") */         
     refresh()
     } 
 
@@ -32,8 +31,6 @@ const Activities = () => {
     },[dispatch])
 
 
-
-/*     {id, name, difficulty, duration, season}        */
     return (
 <div>
 
@@ -83,6 +80,7 @@ const Activities = () => {
     difficulty={el.difficulty}
     id={el.id}   
     duration={el.duration}
+    img={el.img}
     season={el.season.map(e=>e).join(", ")}
     country={el.country.map(e=>e).join(", ")}
     handleDelete={()=> handleDelete(el.id)}
