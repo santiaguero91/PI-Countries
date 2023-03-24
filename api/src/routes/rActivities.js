@@ -27,6 +27,7 @@ res.send("Actividad Creado con exito")
 
 
 router.get("/", async(req,res) => {
+    try {
     const name = req.query.name
     let activitiesTotal = await Activity.findAll();
     if(name){
@@ -37,6 +38,9 @@ router.get("/", async(req,res) => {
     } else{
         res.status(200).send(activitiesTotal)
     }
+} catch (error) {
+    console.log(error)
+}
 })
 
 router.get("/", async(req,res) => {
@@ -55,6 +59,7 @@ router.get("/", async(req,res) => {
 
 router.delete("/:id", async(req,res) => {
     const {id} = req.params;
+    try {
     if(id){
         Activity.destroy(
         { where: { id: id }
@@ -63,6 +68,9 @@ router.delete("/:id", async(req,res) => {
     } else{
         res.status(404).send("Can't find such actiity")
     }
+} catch (error) {
+    console.log(error)
+}
 }); 
 
 

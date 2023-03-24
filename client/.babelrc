@@ -1,25 +1,27 @@
 {
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "node": "14"
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "14"
+          }
+        } 
+      ]  , ["@babel/preset-react"]
+    ], 
+   
+  
+    "plugins": [
+      ["@babel/plugin-transform-react-jsx", {
+        "runtime": "automatic"
+      }],
+      "add-module-exports",
+      [
+        "inline-dotenv",
+        {
+          "path": "./.env.production",
+          "unsafe": true
         }
-      } 
-    ]  , ["@babel/preset-react"]
-  ], 
- 
-
-  "plugins": [
-    
-    "add-module-exports",
-    [
-      "inline-dotenv",
-      {
-        "path": "./.env.production",
-        "unsafe": true
-      }
+      ]
     ]
-  ]
-}
+  }
