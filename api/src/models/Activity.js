@@ -36,8 +36,11 @@ module.exports = (sequelize) => {
     country:{
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
-    }
-
+    },
+    img: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      }
     }, {
         timestamps: false,
         freezeTableName: true,

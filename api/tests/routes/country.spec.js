@@ -10,7 +10,7 @@ const { Country, conn } = require('../../src/db.js');
 const agent = session(app);
 
 describe('Countries routes ', () => {  
-  it("Responde con los datos de Argentina al pedido por params",  () => {
+  it("It returns an objects with Argentina's data ask by ID",  () => {
       return agent.get("/countries/ARG")
       .expect(200)
       .expect((res)=> {
@@ -22,7 +22,7 @@ describe('Countries routes ', () => {
       });      
   });
 
-  it("Responde con los datos de Colombia al pedido por query",  () => {
+  it("It returns an objects with Colombias's data ask by query",  () => {
     return agent.get("/countries?name=col")
     .expect(200)
     .expect((res)=> {

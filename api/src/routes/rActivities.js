@@ -10,6 +10,7 @@ router.post("/", async (req,res) => {
         duration,
         season,
         country,
+        img
    } = req.body;
 
    let activityCreated = await Activity.create({
@@ -17,7 +18,8 @@ router.post("/", async (req,res) => {
     difficulty,
     duration,
     season,
-    country
+    country,
+    img
 })
 
 let countryDB = await Country.findAll({where:{ name:country}})
@@ -82,6 +84,7 @@ router.put("/", async(req,res) => {
         duration,
         season,
         country,
+        img
    } = req.body;
 
 if(!difficulty || !duration || !season || !country ) {
@@ -98,7 +101,8 @@ if(!difficulty || !duration || !season || !country ) {
             difficulty: difficulty,
             duration: duration,
             season: season,
-            country: country
+            country: country,
+            img: img
             },
             { where: { 
                 name: name 

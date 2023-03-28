@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const { Activity, Country } = require("../db")
-/* const getDbInfo = require('./controllers') */
 const router = Router();
 //////////////////////////////////////////////
 
@@ -8,11 +7,11 @@ const router = Router();
     return await Country.findAll({
         include:{
             model: Activity,
-            attributes:["name", "id", "name", "difficulty", "duration", "season"],
+            attributes:["name", "id", "name", "difficulty", "duration", "season","img"],
             through:{attributes: []},
         }
     })
-} 
+}
 
 router.get("/", async(req,res) => {
     const name = req.query.name
