@@ -7,32 +7,25 @@ const ActivityCard = ({id, name, difficulty, duration, season, country, handleDe
     
     const location = useLocation();
     return(
-        <div className={style.card}>
+    <div className={style.card}>
 
-        {location.pathname === "/activities" &&
-        <button onClick={handleDelete} className={style.closeButton} >X</button> 
-        }
+    {location.pathname === "/activities" &&
+    <button onClick={handleDelete} className={style.closeButton} >X</button> 
+    }
 
-        {
-         (img) && <img src={img} alt="activ img"/>
-        }
-        
+    {(img) && <img src={img} alt="activ img"/>}
 
+        <div>
             <div>
-                <div>
-                    {/* <h4>Actividad {id}</h4> */}
-                    <h3>{name}</h3>
-                    
-                </div>
-            <div>
-            </div>
+               {/* <h4>Actividad {id}</h4> */}
+               <h3>{name}</h3>
+            </div> 
             <p>Difficulty : {difficulty}</p>
             <p>Duration : {duration} hours</p>
             <p>Season : {season}</p>
             {location.pathname === "/activities" && <p>Countries : {country}</p> }
-            
-            </div>
         </div>
+    </div>
     )
 }
 

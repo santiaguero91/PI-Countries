@@ -64,9 +64,8 @@ const ModifyActivity = () => {
 
 
 const handleSubmit = (e) => {
-     e.preventDefault() 
+    e.preventDefault() 
     dispatch(putActivities(input));
-   
        
     setInput({
         name: "",
@@ -81,7 +80,7 @@ const handleSubmit = (e) => {
     navigate('/activities')    
 } 
 
-     useEffect(()=>{
+    useEffect(()=>{
         dispatch(getCountries())
     }, [dispatch]);
 
@@ -91,7 +90,7 @@ const handleSubmit = (e) => {
       <div className={style.background}>
         <Link  to= "/activities" ><button>Back to Activities</button></Link>
         <form className={style.form}>
-        <h1>Modify Activity</h1>
+        <h4>Modify Activity</h4>
             <div>
                 <label>Activity to modify:</label>
                 <input 
@@ -101,13 +100,11 @@ const handleSubmit = (e) => {
                 value={input.name}
                 name="name"
                 onChange={(e)=>handleChange(e)}
-            />
+                />
             {errors.name && <p className={style.alert} >{errors.name}</p>}
-
             </div>
 
 <hr></hr>
-
             <div>
                 <label>New Difficulty:</label>
                 <input 
@@ -146,7 +143,7 @@ const handleSubmit = (e) => {
             {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
 
                <div className={style.divblance}>
-                <h4>Paises Seleccionados</h4>
+                <h3>Paises Seleccionados</h3>
                 <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
 
                 <div>
@@ -156,7 +153,7 @@ const handleSubmit = (e) => {
                     name="Summer"
                     value="Summer"
                     onChange={(e)=>handleCheck(e)}
-                /> Summer</label>
+                />Summer</label>
                 <label><input
                     type="checkbox"
                     name="Autumn"
@@ -190,15 +187,12 @@ const handleSubmit = (e) => {
             </div>
             <div>
                 {
-                    (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) ? 
-                 <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button> :
-                 <button id="submitButton" disabled  onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button>
+                (input.name !== "" && input.difficulty !== "" && input.duration !== "" && input.season.length !== 0 && input.country.length !== 0) ? 
+                <button id="submitButton"   onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button> :
+                <button id="submitButton" disabled  onClick={(e)=>handleSubmit(e)}  type= "submit">MODIFY ACTIVITY</button>
                 }
             </div>
-
         </form>
-
-
       </div>
     )
 }

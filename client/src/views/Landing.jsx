@@ -4,16 +4,16 @@ import style from "../styles/Landing.module.css"
 
 const Landing = () => {
     return (
-      <div className={style.background}>
-        <div className={style.leaves}>
+    <div className={style.background}>
 
-        </div>
-          <div className={style.landing}>
-            <Link to="/home">
-              <button title="enter">Home</button>
-            </Link>
-          </div>
+      <div className={style.titleImg}></div>
+
+      <div className={style.landing}>
+        <Link to="/home">
+          <button title="enter">Home</button>
+        </Link>
       </div>
+    </div>
     )
 }
 export default Landing;

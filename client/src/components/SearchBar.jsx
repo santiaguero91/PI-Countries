@@ -10,18 +10,15 @@ export default function SearchBar({setCurrentPage}){
     const [name, setName] = useState("")
 
 function handleInputChange(e) {
-e.preventDefault()
-setName(e.target.value)
-setCurrentPage(1)
+    e.preventDefault()
+    setName(e.target.value)
+    setCurrentPage(1)
 }
 
 function handleSubmit(event) {
-event.preventDefault()
-dispatch(searchCountryName(name))
+    event.preventDefault()
+    dispatch(searchCountryName(name))
 }
-
-
-
 
 return (
     <div>

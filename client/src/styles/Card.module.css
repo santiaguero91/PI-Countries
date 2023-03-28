@@ -37,7 +37,7 @@ img{
     background-color: rgba(255, 255, 255, 0.644);
     border-radius: 10px;
     align-self: flex-end;
-
+    margin-bottom: 10px;
 }
 
 .button:hover{

@@ -1,7 +1,7 @@
 import React,{ useEffect, useState} from "react";
 import { useDispatch, useSelector} from "react-redux";
 import {getCountries, filterCountriesByContinent, orderByName, orderByPopulation} from "../redux/actions"
-import  {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar"
@@ -10,10 +10,8 @@ import style from "../styles/Home.module.css"
 
 
 const Landing = () => {
-
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries)
-
 
 /////* PAGINATION  *//////
 const [currentPage, setCurrentPage] = useState(1);  
@@ -34,15 +32,12 @@ const handleNext = (pageNumber)=> {
   setCurrentPage(pageNumber + 1)
  }
 
-
-
   ///////////////////handlers/////////////////////////////////
 
   function handleFilterContinent(event){
     dispatch(filterCountriesByContinent(event.target.value))
     setCurrentPage(1);
    }
-
 
    function handleOrderByName(event){
     event.preventDefault()
@@ -58,14 +53,12 @@ const handleNext = (pageNumber)=> {
     setOrden(`Ordenado ${event.target.value}`)
    }
 
-  
-
 
 //////////////////////////////
 
-  useEffect(()=>{
-    dispatch(getCountries())
-},[dispatch])
+useEffect(()=>{
+  dispatch(getCountries())
+  },[dispatch])
 
 function handleClick(event){
   event.preventDefault()
@@ -75,72 +68,43 @@ function handleClick(event){
   return (
   <div className={style.background}>
 
-  <div className={style.linkAndReload} >
+  <div className={style.linkAndReload}>
         <button className={style.linkToForm}>
-        <Link to='/activities' >Go to Activities</Link>
+          <Link to='/activities'>Go to Activities</Link>
         </button>
         <SearchBar 
         className={style.searchBar}
         setCurrentPage={setCurrentPage}
         />
-        <button onClick={e=>{handleClick(e)}}>
-            Volver a cargar todos los paises
-        </button>
+        <button onClick={e=>{handleClick(e)}}>Volver a cargar todos los paises</button>
   </div>
 
   <div className={style.filters}>
-        <select onChange={e=> handleOrderByName(e)} >
-          <option
-          value="asc"
-          >A-Z</option>
-          <option
-          value="desc"
-          >Z-A</option>
-        </select>
-
-      <select onChange={e=> handleOrderByPopulation(e)}>
-      <option
-          >Order by population</option>
-      <option
-          value="asc"
-          >Population increase</option>
-          <option
-          value="desc"
-          >Population decrease</option>
+      <select onChange={e=> handleOrderByName(e)}>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
       </select>
 
-        <select onChange={e=> handleFilterContinent(e)}
-        >
-          <option
-          value="All"
-          >All Continents</option>
-          <option
-          value="South America"
-          >South America</option>
-          <option
-          value="North America"
-          >North America</option>
-          <option
-          value="Asia"
-          >Asia</option>
-          <option
-          value="Europe"
-          >Europe</option>
-          <option
-          value="Africa"
-          >Africa</option>
-          <option
-          value="Oceania"
-          >Oceania</option>
-          <option
-          value="Antarctica"
-          >Antarctica</option>
+      <select onChange={e=> handleOrderByPopulation(e)}>
+          <option>Order by population</option>
+          <option value="asc">Population increase</option>
+          <option value="desc">Population decrease</option>
+      </select>
 
-        </select>
+      <select onChange={e=> handleFilterContinent(e)}>
+        <option value="All">All Continents</option>
+        <option value="South America">South America</option>
+        <option value="North America">North America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Antarctica">Antarctica</option>
+      </select>
   </div>
         
   <div className={style.countries}>
-{
+  {
   currentCountries.map( el=>{
     return <Card
     key={el.id}
