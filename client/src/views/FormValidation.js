@@ -13,7 +13,7 @@ function validate (activityData) {
         errors.difficulty = "Duration must not be over 72hs"
     } else if (activityData.season.length === 0){
         errors.season = "Season required"
-    } else if (activityData.country.length === 0){
+    } else if(activityData.country.length === 0){
         errors.country = "Select at least 1 country"
     }  
     return errors

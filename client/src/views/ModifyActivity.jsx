@@ -50,17 +50,25 @@ const ModifyActivity = () => {
             setInput({
                 ...input,
                 season: [...input.season,e.target.value]
-            }) 
+            })
+            setErrors(validate({
+                ...input,
+                season: [...input.season,e.target.value]
+            })) 
         }
-
     }
 
-     const handleSelect = (e) => {
-          setInput({
-            ...input,
-            country: [...input.country,e.target.value]
-        }) 
-    }
+    const handleSelect = (e) => {
+        setInput({
+          ...input,
+          country: [...input.country,e.target.value]
+      }) 
+      setErrors(validate({
+          ...input,
+          country: [...input.country,e.target.value]
+      }))
+      
+  }
 
 
 const handleSubmit = (e) => {
@@ -75,9 +83,8 @@ const handleSubmit = (e) => {
         country: [],
         img: "",
     })
-
     alert("Activity was modify!!")  
-    navigate('/activities')    
+    navigate('/activities')
 } 
 
     useEffect(()=>{
@@ -120,7 +127,7 @@ const handleSubmit = (e) => {
             <div>
                 <label>New Duration:</label>
                 <input 
-                placeholder="Select hours"
+                placeholder="1 to 72"
                 type="number"
                 value={input.duration}
                 name="duration"
@@ -129,61 +136,29 @@ const handleSubmit = (e) => {
             />
             {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
-            <div className={style.selectCountries}>Select New Countries:</div>
-
-            <select onChange={(e)=>handleSelect(e)}>                
-                {
-                    countries.map((country)=>(
-                        <option value={country.name} key={country.id}> {country.name} </option>
-                        ))
-                    } 
-
-            
-            </select>
-            {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
-
-               <div className={style.divblance}>
-                <h3>Paises Seleccionados</h3>
-                <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> </div>
-
-                <div>
+            <div>
                 <label>Select Season:</label>
-                <label><input
-                    type="checkbox"
-                    name="Summer"
-                    value="Summer"
-                    onChange={(e)=>handleCheck(e)}
-                />Summer</label>
-                <label><input
-                    type="checkbox"
-                    name="Autumn"
-                    value="Autumn"
-                    onChange={(e)=>handleCheck(e)}
-                />Autumn</label>
-                <label><input
-                    type="checkbox"
-                    name="Winter"
-                    value="Winter"
-                    onChange={(e)=>handleCheck(e)}
-                />Winter</label>
-                <label><input
-                    type="checkbox"
-                    name="Spring"
-                    value="Spring"
-                    onChange={(e)=>handleCheck(e)}
-                />Spring</label>
-            {input.season.length === 0 && <p className={style.alert} >{errors.season}</p>}
+                <br></br>
+                <label><input type="checkbox" name="Summer" value="Summer" onChange={(e)=>handleCheck(e)}/>Summer</label>
+                <label><input type="checkbox" name="Autumn" value="Autumn" onChange={(e)=>handleCheck(e)}/>Autumn</label>
+                <label><input type="checkbox" name="Winter" value="Winter" onChange={(e)=>handleCheck(e)}/>Winter</label>
+                <label><input type="checkbox" name="Spring" value="Spring" onChange={(e)=>handleCheck(e)}/>Spring</label>
+                {input.season.length === 0 && <p className={style.alert}>{errors.season}</p>}
+            </div>
+            <div className={style.selectCountries}>Select New Countries:</div>
+            <select onChange={(e)=>handleSelect(e)}>
+                <option>Select Country</option>                
+                    {countries.map((country)=>(<option value={country.name} key={country.id}> {country.name} </option>))} 
+                </select>
+                {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
+
+            <div className={style.divblance}>
+                <h3>Paises Seleccionados</h3>
+                <ul><li>{input.country.map(el=>el+"  , ")}</li></ul> 
             </div>
             <div>
-                <label>Agregar Imagen:</label>
-                <input 
-                id="inputimg"
-                type="text"
-                value={input.img}
-                name="img"
-                onChange={(e)=>handleChange(e)}
-                title="img"
-            />
+                <label>Add Image:</label>
+                <input id="inputimg"type="text"value={input.img}name="img"onChange={(e)=>handleChange(e)}title="img"/>
             </div>
             <div>
                 {

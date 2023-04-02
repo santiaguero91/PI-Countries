@@ -28,8 +28,8 @@ const Form = () => {
         name: "",
         difficulty: "",
         duration: "",
-        season: "",
-        country: "",   
+        season: [],
+        country: [],  
     })
 
     const handleChange = (e) => {
@@ -41,7 +41,6 @@ const Form = () => {
             ...input,
             [e.target.name]: e.target.value
         }))
-
     }
 
     const handleCheck = (e) => {
@@ -52,7 +51,7 @@ const Form = () => {
             })
             setErrors(validate({
                 ...input,
-                [e.target.name]: e.target.value
+                season: [...input.season,e.target.value]
             })) 
         }
     }
@@ -64,14 +63,15 @@ const Form = () => {
         }) 
         setErrors(validate({
             ...input,
-            [e.target.name]: e.target.value
+            country: [...input.country,e.target.value]
         }))
+        
     }
 
 
 const handleSubmit = (e) => {
      e.preventDefault() 
-     console.log(input);
+     
     dispatch(postActivities(input));
        
     setInput({
@@ -82,8 +82,7 @@ const handleSubmit = (e) => {
         country: [],
         img: "",
     })
-
-     navigate('/activities')    
+     navigate('/activities')
      alert("Activity was created successfully!!")  
 } 
      useEffect(()=>{
@@ -103,9 +102,8 @@ const handleSubmit = (e) => {
                 value={input.name}
                 name="name"
                 onChange={(e)=>handleChange(e)}
-                title="name"
-                />
-            {errors.name && <p className={style.alert} >{errors.name}</p>}
+                title="name"/>
+                {errors.name && <p className={style.alert} >{errors.name}</p>}
             </div>
             <div>
                 <label>Difficulty:</label>
@@ -116,9 +114,8 @@ const handleSubmit = (e) => {
                 onChange={(e)=>handleChange(e)}
                 title="difficulty"
                 min="1" max="5"
-                placeholder="1 to 5"
-                />
-            {errors.difficulty && <p className={style.alert} >{errors.difficulty}</p>}
+                placeholder="1 to 5"/>
+                {errors.difficulty && <p className={style.alert} >{errors.difficulty}</p>}
             </div>
             <div>
                 <label>Duration:</label>
@@ -129,9 +126,8 @@ const handleSubmit = (e) => {
                 onChange={(e)=>handleChange(e)}
                 title="duration"
                 min="1" max="72"
-                placeholder="1 to 72"
-                />
-            {errors.duration && <p className={style.alert} >{errors.duration}</p>}
+                placeholder="1 to 72"/>
+                {errors.duration && <p className={style.alert} >{errors.duration}</p>}
             </div>
 <br></br>
             <div className="SeasonCheckboxs">
@@ -144,17 +140,15 @@ const handleSubmit = (e) => {
             </div>
 
             <div className={style.selectCountries}>Select Countries:</div>
-
-            <select onChange={(e)=>handleSelect(e)}>                
-            {countries.map((country)=>(<option value={country.name} key={country.id}>{country.name}</option>
-            ))
-            }            
+            <select onChange={(e)=>handleSelect(e)}>
+                <option>Select Country</option>                   
+                {countries.map((country)=>(<option value={country.name} key={country.id}>{country.name}</option>))}            
             </select>
 
             <div className={style.divblance}>
                 <h3>Countries Selected</h3>
                 <ul><li>{input.country.map(el=>el+"  , ")}</li></ul>
-            {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
+                {input.country.length === 0 && <p className={style.alert} >{errors.country}</p>}
             </div>
 
 

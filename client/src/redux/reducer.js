@@ -100,13 +100,13 @@ const rootReducer =(state=initialState, action) => {
         case PUT_ACTIVITY:
             return{
                 ...state,
-            }
+        }
 
         case DELETE_ACTIVITIES:
             return{
             ...state,
             activities: action.payload
-            }
+        }
         
         case GET_ACTIVITIES:
         return{
@@ -118,7 +118,7 @@ const rootReducer =(state=initialState, action) => {
             return{
                 ...state,
                 detail: action.payload
-            }
+        }
 
         default:
             return{...state}; 
