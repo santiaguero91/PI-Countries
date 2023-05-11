@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import style from "../styles/Card.module.css"
+import {CardDiv,} from "./CardStyle";
+
 
 const Card = ({imgFlag, name, id, population, continent}) => {
     return(
-    <div className={style.card}>
+    <CardDiv>
         <div>
             <div className={style.stats}>
                 <img src={imgFlag} alt="img not found"/>
@@ -16,7 +18,7 @@ const Card = ({imgFlag, name, id, population, continent}) => {
         <button className={style.button}>
           <Link to={`/detail/${id}`}>See Details</Link>
         </button>           
-    </div>
+    </CardDiv>
     )
 }
 
