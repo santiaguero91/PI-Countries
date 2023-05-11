@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import {CardDiv, Stats} from "./CardStyle";
-
+import Button from '@mui/material/Button';
 
 const Card = ({imgFlag, name, id, population, continent}) => {
     return(
@@ -14,9 +14,11 @@ const Card = ({imgFlag, name, id, population, continent}) => {
             <p>Continent : {continent}</p>
             <p>Poblacion : {population.toLocaleString('es-ES')}</p>
         </div>
-        <button >
-          <Link to={`/detail/${id}`}>See Details</Link>
-        </button>           
+        <Link to={`/detail/${id}`}>
+        <Button className="btn" variant="outlined">
+         <span>See Details</span> 
+        </Button>
+        </Link>
     </CardDiv>
     )
 }

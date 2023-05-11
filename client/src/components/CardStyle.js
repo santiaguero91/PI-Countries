@@ -5,8 +5,7 @@ export const CardDiv = styled.div`
     width: 270px;
     height: 200x;
     scale: 80%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 	border-radius: 10px;
     background-color:rgba(31, 29, 17, 0.9) ;
     color: rgb(161, 187, 171);
@@ -17,21 +16,10 @@ export const CardDiv = styled.div`
 	rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     transform: scale(110%);
 }
-button{
-    transition: 1s;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.644);
-    box-shadow: rgba(255, 255, 255, 0.644) 0px 0px 0px 0px;
-    border-radius: 15px;
-    align-self: flex-end;
-    margin-bottom: 10px;
-}
-
-button:hover{
-    border: none;
-    border-radius: 30px;
-}
 `;
+
+
+
 
 export const Stats = styled.div`
     display: flex;
