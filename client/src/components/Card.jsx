@@ -1,21 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import style from "../styles/Card.module.css"
-import {CardDiv,} from "./CardStyle";
+import {CardDiv, Stats} from "./CardStyle";
 
 
 const Card = ({imgFlag, name, id, population, continent}) => {
     return(
     <CardDiv>
         <div>
-            <div className={style.stats}>
+            <Stats>
                 <img src={imgFlag} alt="img not found"/>
-                <p  className={style.name}  >{name}</p>
-            </div>
+                <p >{name}</p>
+            </Stats>
             <p>Continent : {continent}</p>
             <p>Poblacion : {population.toLocaleString('es-ES')}</p>
         </div>
-        <button className={style.button}>
+        <button >
           <Link to={`/detail/${id}`}>See Details</Link>
         </button>           
     </CardDiv>
