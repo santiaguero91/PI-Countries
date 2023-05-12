@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: rgb(134, 134, 132);
+  background-color: rgb(131, 181, 209);
   background-image: url("./styles/countries.png");
   background-repeat: no-repeat;
   background-attachment: scroll;

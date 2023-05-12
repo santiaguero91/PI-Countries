@@ -7,9 +7,9 @@ export const CardDiv = styled.div`
     scale: 80%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 	border-radius: 10px;
-    background-color:rgba(31, 29, 17, 0.9) ;
-    color: rgb(161, 187, 171);
-    font-weight: 500;
+    background-color:rgba( 88, 129, 87, 0.9) ;
+    color: rgb(0, 0, 0);
+    font-weight: 00;
     transition: 0.5s;
     :hover{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -26,7 +26,7 @@ export const Stats = styled.div`
     justify-content: space-around;
     align-items: center;
     padding-right: 20px;
-    background-color:rgba(139, 133, 77, 0.9) ;
+    background-color:rgba(58, 90, 64, 0.9) ;
     font-weight: 700;
 
     img{
