@@ -66,15 +66,19 @@ export const Filters = styled.div`
 
     select{
     cursor: pointer;
-    border: none;
-    border-radius: 30px;
     height: 35px;
     width: fit-content;
+    border: none;
+    border-radius: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     margin-top: 1rem;
     font-weight: 700;
-    padding: 10px;
+    padding: 10px 20px;
+    font-weight: 700;
     outline: none;
+    margin-bottom: 10px;
+    background-color: rgba( 88, 129, 87) ;
+
   appearance: none;
   border: none;
 
