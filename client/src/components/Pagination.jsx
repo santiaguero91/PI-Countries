@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Paginattion } from "./PaginationStyle";
+import { Buttons, Paginattion } from "./PaginationStyle";
 
 
 export default function Pagination ({ countriesPerPage, allCountries, pagination, currentPage, setCurrentPage}){
@@ -19,9 +19,9 @@ const handlePreviousPage = ()=> {
 }
 
     return(
-    <Nav> 
-        <button onClick={() => handlePreviousPage()}>Previous</button>
-        <button onClick={() => handleNextPage()}>Next</button>
+    <nav> 
+        <Buttons onClick={() => handlePreviousPage()}>Previous</Buttons>
+        <Buttons onClick={() => handleNextPage()}>Next</Buttons>
         <div>
             <Paginattion>
             {
@@ -36,6 +36,6 @@ const handlePreviousPage = ()=> {
             }
             </Paginattion>
         </div>
-        </Nav>
+        </nav>
     )
 }
