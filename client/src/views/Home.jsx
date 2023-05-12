@@ -11,7 +11,7 @@ import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 import style from "../styles/Home.module.css";
-import { Filters, LinkAndReload } from "./HomeStyle";
+import { ButtontoForm, Filters, Home, LinkAndReload } from "./HomeStyle";
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -72,12 +72,13 @@ const Landing = () => {
   }
 
   return (
-    <div>
+    <Home>
       <LinkAndReload>
         <div className="firstRow">
-          <button className={style.linkToForm}>
-            <Link to="/activities">Go to Activities</Link>
-          </button>
+        <Link to="/activities">
+          <ButtontoForm>
+            <span>Go to Activities</span>
+          </ButtontoForm></Link>
           <SearchBar
             className={style.searchBar}
             setCurrentPage={setCurrentPage}
@@ -87,7 +88,7 @@ const Landing = () => {
               handleClick(e);
             }}
           >
-            Volver a cargar todos los paises
+            Reload Countries
           </button>
         </div>
         <Filters>
@@ -142,7 +143,7 @@ const Landing = () => {
         handleNext={handleNext}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </Home>
   );
 };
 export default Landing;

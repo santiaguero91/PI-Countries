@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 
+export const  Home = styled.div`
+transition: 1s ease-in-out;
+`;
+
+
 export const LinkAndReload = styled.div`
     display: flex;
     flex-direction: column;
@@ -15,7 +20,12 @@ export const LinkAndReload = styled.div`
 }
 button{
     border: none;
-    background-color: rgba(234, 234, 234, 0.9);
+    background-image: linear-gradient(
+      45deg,
+      #6a6a6a 0%,
+      #9a9a9a 51%,
+      #6a6a6a 100%
+    );
 }
 .firstRow{
     display: flex;
@@ -25,6 +35,29 @@ button{
     margin-top: 15px;
 }
 `;
+
+export const ButtontoForm = styled.button`
+border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgba(111, 111, 111, 0.9);
+    font-weight: 800;
+    margin: 0px 5rem;
+    border-radius: 20px;
+    width: 60%;
+    height: 100%;
+    transition: 0.5s;
+    
+    :hover{
+    border: none;
+    background-image: linear-gradient(
+      45deg,
+      #9a9a9a 0%,
+      #6a6a6a 51%,
+      #9a9a9a 100%
+    )}
+`;
+
 export const Filters = styled.div`
     display: flex;
     justify-content:center;
