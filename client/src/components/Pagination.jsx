@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/Pagination.module.css"
+import { Nav, Paginattion } from "./PaginationStyle";
 
 
 export default function Pagination ({ countriesPerPage, allCountries, pagination, currentPage, setCurrentPage}){
@@ -19,23 +19,23 @@ const handlePreviousPage = ()=> {
 }
 
     return(
-    <nav> 
+    <Nav> 
         <button onClick={() => handlePreviousPage()}>Previous</button>
         <button onClick={() => handleNextPage()}>Next</button>
         <div>
-            <ul className={style.pagination}>
+            <Paginattion>
             {
                 pageNumber && pageNumber.map(number =>(
                 <li  className="number" key={number}>
                 <button 
                 onClick={() => pagination(number)} 
-                className={number === currentPage ? (style.active) : "color"} 
+                className={number === currentPage ? ("active") : "color"} 
                 >{number}</button>
                 </li>
                 ))
             }
-            </ul>
+            </Paginattion>
         </div>
-        </nav>
+        </Nav>
     )
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const CardDiv = styled.div`
-    width: 270px;
+    width: 320px;
     height: 200x;
     scale: 80%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -15,11 +15,42 @@ export const CardDiv = styled.div`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
 	rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     transform: scale(110%);
+
+    .btn{
+        margin-bottom: 10px;
+    }
 }
 `;
 
-
-
+export const Button = styled.button`
+  background-image: linear-gradient(
+      45deg,
+      #64403e 0%,
+      #007EA7 51%,
+      #64403e 100%
+    );
+  border: none;
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+    
+:hover { 
+border: none;
+background-image: linear-gradient(109.6deg, rgb(162, 2, 63) 11.2%, rgb(231, 62, 68) 53.6%, rgb(255, 129, 79) 91.1%);
+}
+`;
 
 export const Stats = styled.div`
     display: flex;
