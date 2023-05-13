@@ -1,13 +1,14 @@
 import React from "react";
 import style from "../styles/Card.module.css"
 import { useLocation } from "react-router-dom"
+import { Card } from "./ActivityCardStyle";
 
 
 const ActivityCard = ({id, name, difficulty, duration, season, country, handleDelete, img}) => {
     
     const location = useLocation();
     return(
-    <div className={style.card}>
+    <Card>
 
     {location.pathname === "/activities" &&
     <button onClick={handleDelete} className={style.closeButton} >X</button> 
@@ -25,7 +26,7 @@ const ActivityCard = ({id, name, difficulty, duration, season, country, handleDe
             <p>Season : {season}</p>
             {location.pathname === "/activities" && <p>Countries : {country}</p> }
         </div>
-    </div>
+    </Card>
     )
 }
 

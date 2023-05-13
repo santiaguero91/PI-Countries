@@ -1,15 +1,4 @@
-.card{
-    width: 300px;
-    height: 250x;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color:rgba(31, 29, 17, 0.7);
-    color: rgb(161, 187, 171);
-    font-weight: 500;
-    transition: 1s;
 
-
-}
 img{
     border-radius: 1px;
 }

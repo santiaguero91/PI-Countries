@@ -19,6 +19,7 @@ export const DetailDiv = styled.div`
   border-radius: 50px;
   padding: 20px;
   margin: 5% 0 0 0;
+  
 /*   background-color: rgba(111, 111, 111, 0.);
  */
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -39,6 +40,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color:rgba(0, 0, 0, 0.6);
 h1{
     font-size: 20px;
+    font-weight: 500;
 }
 }
 `;
