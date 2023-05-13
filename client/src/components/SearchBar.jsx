@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import {useDispatch} from "react-redux"
 import {searchCountryName} from "../redux/actions"
-import style from "../styles/SearchBar.module.css"
+import { Button, Input } from "./SearchBar";
 
 
 export default function SearchBar({setCurrentPage}){
@@ -22,17 +22,15 @@ function handleSubmit(event) {
 
 return (
     <div>
-        <input 
-        className={style.input}
+        <Input 
         type="text"
         placeholder="Search..."
         onChange={(e) => handleInputChange(e)}
         />
-        <button 
-        className={style.button}
+        <Button 
         type="submit" 
         onClick={(event) => handleSubmit(event)} >
-        Search</button>
+        Search</Button>
 
     </div>
 )

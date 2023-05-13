@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import ActivityCard from "../components/ActivityCard";
 import React,{ useEffect} from "react";
 import { ButtonsDiv, CardsDisplayerDiv, TitleDiv } from "./ActivitiesStyles";
+import { motion } from "framer-motion/dist/framer-motion"
 
 
 
@@ -32,7 +33,11 @@ const Activities = () => {
 
 
     return (
-<div>
+        <motion.div
+    initial={{width:0}}
+    animate={{width:"100%"}}
+    exit={{x:window.innerWidth, transition:{duration:0.3}}}
+    >
     <ButtonsDiv>
     <TitleDiv>
     <h2>ACTIVITIES</h2>
@@ -87,10 +92,7 @@ const Activities = () => {
 })} 
 </CardsDisplayerDiv>
 
-{}
-
-</div>
-
+</motion.div>
     )
 }
 

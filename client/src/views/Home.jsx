@@ -11,6 +11,7 @@ import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
 import { ButtontoForm, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
+import { motion } from "framer-motion/dist/framer-motion"
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -71,6 +72,12 @@ const Landing = () => {
   }
 
   return (
+
+    <motion.div
+    initial={{width:0}}
+    animate={{width:"100%"}}
+    exit={{x:window.innerWidth, transition:{duration:0.3}}}
+    >
     <Home>
       <LinkAndReload>
         <div className="firstRow">
@@ -142,6 +149,7 @@ const Landing = () => {
         setCurrentPage={setCurrentPage}
       />
     </Home>
+    </motion.div>
   );
 };
 export default Landing;
