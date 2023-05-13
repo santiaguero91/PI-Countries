@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux"
 import {getCountries, putActivities} from "../redux/actions"
 import style from "../styles/Form.module.css"
 import validate from "./FormValidation";
+import { Background, ButtonsDiv } from "./FormStyle";
 
 
 
@@ -94,9 +95,9 @@ const handleSubmit = (e) => {
 
 
     return (
-      <div className={style.background}>
-        <Link  to= "/activities" ><button>Back to Activities</button></Link>
-        <form className={style.form}>
+      <Background>
+        <Link  to= "/activities" ><ButtonsDiv>Back to Activities</ButtonsDiv></Link>
+        <form className="form">
         <h4>Modify Activity</h4>
             <div>
                 <label>Activity to modify:</label>
@@ -168,7 +169,7 @@ const handleSubmit = (e) => {
                 }
             </div>
         </form>
-      </div>
+      </Background>
     )
 }
 export default ModifyActivity;
