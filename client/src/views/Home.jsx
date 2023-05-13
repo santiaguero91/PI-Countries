@@ -10,8 +10,7 @@ import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import style from "../styles/Home.module.css";
-import { ButtontoForm, Filters, Home, LinkAndReload } from "./HomeStyle";
+import { ButtontoForm, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -80,7 +79,6 @@ const Landing = () => {
             <span>Go to Activities</span>
           </ButtontoForm></Link>
           <SearchBar
-            className={style.searchBar}
             setCurrentPage={setCurrentPage}
           />
           <button
@@ -116,7 +114,7 @@ const Landing = () => {
         </Filters>
       </LinkAndReload>
 
-      <div className={style.countries}>
+      <Countries>
         {currentCountries.map((el) => {
           return (
             <Card
@@ -133,7 +131,7 @@ const Landing = () => {
             />
           );
         })}
-      </div>
+      </Countries>
 
       <Pagination
         countriesPerPage={countriesPerPage}

@@ -1,5 +1,4 @@
 import React from "react";
-import style from "../styles/Card.module.css"
 import { useLocation } from "react-router-dom"
 import { Card } from "./ActivityCardStyle";
 
@@ -11,14 +10,12 @@ const ActivityCard = ({id, name, difficulty, duration, season, country, handleDe
     <Card>
 
     {location.pathname === "/activities" &&
-    <button onClick={handleDelete} className={style.closeButton} >X</button> 
+    <button onClick={handleDelete}>X</button> 
     }
 
-    {(img) && <img src={img} alt="activ img"/>}
-
         <div>
+    {(img) && <img src={img} alt="activ img"/>}
             <div>
-               {/* <h4>Actividad {id}</h4> */}
                <h3>{name}</h3>
             </div> 
             <p>Difficulty : {difficulty}</p>

@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const TitleDiv = styled.div`
+  color: aliceblue;
+  border: none;
+  background-color: rgba(15, 15, 15);
+  border-radius: 30px;
+  padding: 15px;
+  width: 25%;
+  margin: 20px auto 20px auto;
+  font-size: larger;
+`;
+
 export const ButtonsDiv = styled.div`
   background-color: transparent;
   
@@ -19,25 +30,14 @@ export const ButtonsDiv = styled.div`
   }
   `;
 
-
-
 export const CardsDisplayerDiv = styled.div`
-  background-color: rgba(70, 70, 70, 0.9);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
   font-size: larger;
   margin: 3rem 5rem;
   transition: 1s;
   border-radius: 35px;
 `;
 
-export const TitleDiv = styled.div`
-  color: aliceblue;
-  border: 2px solid black;
-  background-color: rgba(70, 70, 70, 0.514);
-  border-radius: 30px;
-  padding: 20px;
-  width: 300px;
-  margin: 20px auto 20px auto;
-`;
+

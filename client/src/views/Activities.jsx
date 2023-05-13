@@ -33,7 +33,6 @@ const Activities = () => {
 
     return (
 <div>
-style
     <ButtonsDiv>
     <TitleDiv>
     <h2>ACTIVITIES</h2>
