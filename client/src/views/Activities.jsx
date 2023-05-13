@@ -3,7 +3,7 @@ import {getActivities, deleteActivities, filterActivitiesBySeason } from "../red
 import {Link} from "react-router-dom" 
 import ActivityCard from "../components/ActivityCard";
 import React,{ useEffect} from "react";
-import style from "../styles/Activities.module.css"
+import { ButtonsDiv, CardsDisplayerDiv, TitleDiv } from "./ActivitiesStyles";
 
 
 
@@ -33,20 +33,20 @@ const Activities = () => {
 
     return (
 <div>
-
-    <div>
-    <div className={style.h1}>
+style
+    <ButtonsDiv>
+    <TitleDiv>
     <h2>ACTIVITIES</h2>
-    </div>
-    <button className={style.linkToHome}>
+    </TitleDiv>
+    <button className="linkToHome">
         <Link to='/home' >Return to Home</Link>
     </button>
     
-    <button className={style.linkToForm}>
+    <button className="linkToForm">
         <Link to='/form' >Create Activity</Link>
     </button>
 
-    <button className={style.linkToForm}>
+    <button className="linkToForm">
         <Link to='/modactivities' >Modify Activity</Link>
     </button>
 
@@ -70,8 +70,8 @@ const Activities = () => {
         </select>
 
 
-    </div>
-    <div className={style.cardsContainer}>
+    </ButtonsDiv>
+    <CardsDisplayerDiv>
      {
   allActivities.map( el=>{
     return <ActivityCard
@@ -86,7 +86,7 @@ const Activities = () => {
     handleDelete={()=> handleDelete(el.id)}
     />
 })} 
-</div>
+</CardsDisplayerDiv>
 
 {}
 
