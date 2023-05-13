@@ -7,6 +7,7 @@ import { getDetail } from "../redux/actions";
 import style from "../styles/Details.module.css";
 import ActivityCard from "../components/ActivityCard";
 import { MainDetailsDiv, DetailDiv, ButtonHome } from "./DetailsStyle";
+import { motion } from "framer-motion/dist/framer-motion"
 
 const Details = () => {
   const { id } = useParams();
@@ -19,6 +20,11 @@ const Details = () => {
   const country = useSelector((state) => state.detail);
 
   return (
+    <motion.div
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0, transition:{duration:0.2}}}
+    >
     <MainDetailsDiv>
       {country.length > 0 ? (
         <DetailDiv>
@@ -63,6 +69,7 @@ const Details = () => {
         <p>LOADING...</p>
       )}
     </MainDetailsDiv>
+    </motion.div>
   );
 };
 export default Details;

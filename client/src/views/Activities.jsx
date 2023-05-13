@@ -34,9 +34,9 @@ const Activities = () => {
 
     return (
     <motion.div
-    initial={{width:0}}
-    animate={{width:"100%"}}
-    exit={{x:window.innerWidth, transition:{duration:0.3}}}
+    initial={{scaleY:0}}
+    animate={{scaleY:1}}
+    exit={{scaleY:0, transition:{duration:0.1}}}
     >
     <ButtonsDiv>
     <TitleDiv>

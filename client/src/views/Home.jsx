@@ -74,9 +74,9 @@ const Landing = () => {
   return (
 
     <motion.div
-    initial={{width:0}}
-    animate={{width:"100%"}}
-    exit={{x:window.innerWidth, transition:{duration:0.3}}}
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    exit={{opacity:0, transition:{duration:0.2}}}
     >
     <Home>
       <LinkAndReload>

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchCountryName } from "../redux/actions";
-import { Button, Input } from "./SearchBar";
+import { Button, Input } from "./SearchBarStyle";
 
 export default function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();

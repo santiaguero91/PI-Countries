@@ -6,7 +6,7 @@ function AnimatedRoutes(){
     const location = useLocation();
 
     return(
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter initial={false}>
         <Routes location={location} key={location.pathname}> 
         <Route exact path="/" element={<Landing />} /> 
         <Route exact path="/home" element={<Home />} /> 
