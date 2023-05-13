@@ -14,7 +14,9 @@ export const TitleDiv = styled.div`
 export const ButtonsDiv = styled.div`
   background-color: transparent;
   
+
   .linkToHome, .linkToForm, select{
+    
     background-color: darkcyan;
     border: none;
     border-radius: 10px;
@@ -23,7 +25,6 @@ export const ButtonsDiv = styled.div`
     padding: 10px;
     font-weight: 800;
     transition: 1s;
-
     :hover{
         background-color: darkmagenta;
     }

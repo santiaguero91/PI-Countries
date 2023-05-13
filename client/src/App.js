@@ -7,14 +7,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Routes> 
-      <Route exact path="/" element={<Landing />} /> 
-      <Route exact path="/home" element={<Home />} /> 
-      <Route exact path="/form" element={<Form />} /> 
-      <Route exact path="detail/:id" element={<Details/>}  />
-      <Route exact path="/activities" element={<Activities/>}  />
-      <Route exact path="/modactivities" element={<ModifyActivity/>}  />
-      </Routes> */}
       <AnimatedRoutes/>
     </div>
   );
