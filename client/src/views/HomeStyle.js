@@ -39,7 +39,8 @@ export const LinkAndReload = styled.div`
   }
 `;
 export const Continents = styled(motion.button)`
-background-color: gray;
+  background-color: transparent;
+
 display: flex;
 width: fit-content;
 margin: 0 auto;
@@ -47,6 +48,17 @@ flex-direction: row;
 gap: 1rem;
 justify-content: center;
 cursor: pointer;
+border: none;
+div{
+  padding: 4px;
+  background-color: darkcyan;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
+.special{
+  background-color: aqua;
+}
+
 `;
 export const ButtontoActivities = styled(motion.button)`
   border: none;
