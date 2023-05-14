@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion/dist/framer-motion"
+import { motion } from "framer-motion/dist/framer-motion";
 
 export const TitleDiv = styled(motion.div)`
   color: aliceblue;
@@ -12,12 +12,12 @@ export const TitleDiv = styled(motion.div)`
   font-size: larger;
 `;
 
-export const ButtonsDiv = styled.div`
+export const ButtonsDiv = styled(motion.div)`
   background-color: transparent;
-  
 
-  .linkToHome, .linkToForm, select{
-    
+  .linkToHome,
+  .linkToForm,
+  select {
     background-color: darkcyan;
     border: none;
     border-radius: 10px;
@@ -26,13 +26,13 @@ export const ButtonsDiv = styled.div`
     padding: 10px;
     font-weight: 800;
     transition: 1s;
-    :hover{
-        background-color: darkmagenta;
+    :hover {
+      background-color: darkmagenta;
     }
   }
-  `;
+`;
 
-export const CardsDisplayerDiv = styled.div`
+export const CardsDisplayerDiv = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
@@ -41,5 +41,3 @@ export const CardsDisplayerDiv = styled.div`
   transition: 1s;
   border-radius: 35px;
 `;
-
-

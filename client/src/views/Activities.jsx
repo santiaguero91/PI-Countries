@@ -36,12 +36,18 @@ const Activities = () => {
     <motion.div
     initial={{scaleY:0}}
     animate={{scaleY:1}}
-    exit={{scaleY:0, transition:{duration:0.1}}}
+    exit={{scaleY:0, transition:{duration:0.2}}}
     >
-    <ButtonsDiv>
-    <TitleDiv>
+    <TitleDiv
+    initial={{x: 1000}} animate={{ x: 0 , transition:{duration:0.8}}}
+    >
     <h2>ACTIVITIES</h2>
     </TitleDiv>
+    <ButtonsDiv
+    initial={{scaleY:0}}
+    animate={{scaleY:1}}
+    transition={{ delay: 1 , transition:{duration:0.3}}}
+    >
     <button className="linkToHome">
         <Link to='/home' >Return to Home</Link>
     </button>
@@ -75,7 +81,11 @@ const Activities = () => {
 
 
     </ButtonsDiv>
-    <CardsDisplayerDiv>
+    <CardsDisplayerDiv
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    transition={{ delay: 1.5 , transition:{duration:0.3}}}
+    >
      {
   allActivities.map( el=>{
     return <ActivityCard

@@ -38,7 +38,16 @@ export const LinkAndReload = styled.div`
     margin-top: 15px;
   }
 `;
-
+export const Continents = styled(motion.button)`
+background-color: gray;
+display: flex;
+width: fit-content;
+margin: 0 auto;
+flex-direction: row;
+gap: 1rem;
+justify-content: center;
+cursor: pointer;
+`;
 export const ButtontoActivities = styled(motion.button)`
   border: none;
   padding: 10px;

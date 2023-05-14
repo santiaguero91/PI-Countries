@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import { ButtontoActivities, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
+import { ButtontoActivities, Continents, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
 import { motion } from "framer-motion/dist/framer-motion"
 
 const Landing = () => {
@@ -42,7 +42,7 @@ const Landing = () => {
   ///////////////////handlers/////////////////////////////////
 
   function handleFilterContinent(event) {
-    dispatch(filterCountriesByContinent(event.target.value));
+    dispatch(filterCountriesByContinent(event.target.id));
     setCurrentPage(1);
   }
 
@@ -109,19 +109,19 @@ const Landing = () => {
             <option value="asc">Population increase</option>
             <option value="desc">Population decrease</option>
           </select>
-
-          <select onChange={(e) => handleFilterContinent(e)}>
-            <option value="All">All Continents</option>
-            <option value="South America">South America</option>
-            <option value="North America">North America</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Africa">Africa</option>
-            <option value="Oceania">Oceania</option>
-            <option value="Antarctica">Antarctica</option>
-          </select>
         </Filters>
       </LinkAndReload>
+      <Continents>
+            <div onClick={(e) => handleFilterContinent(e)} id="All">ALL</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="Africa">AFRICA</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="South America">South America</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="North America">North America</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="Asia">Asia</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="Europe">Europe</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="Oceania">Oceania</div>
+            <div onClick={(e) => handleFilterContinent(e)} id="Antarctica">Antarctica</div>
+
+      </Continents>
 
       <Countries >
         {currentCountries.map((el) => {
