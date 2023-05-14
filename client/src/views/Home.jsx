@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
 import SearchBar from "../components/SearchBar";
-import { ButtontoForm, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
+import { ButtontoActivities, Countries, Filters, Home, LinkAndReload } from "./HomeStyle";
 import { motion } from "framer-motion/dist/framer-motion"
 
 const Landing = () => {
@@ -82,9 +82,11 @@ const Landing = () => {
       <LinkAndReload>
         <div className="firstRow">
         <Link to="/activities">
-          <ButtontoForm>
-            <span>Go to Activities</span>
-          </ButtontoForm></Link>
+          <ButtontoActivities
+          whileHover={{opacity: 0}}
+          >
+            Go to Activities
+          </ButtontoActivities></Link>
           <SearchBar
             setCurrentPage={setCurrentPage}
           />
@@ -121,7 +123,7 @@ const Landing = () => {
         </Filters>
       </LinkAndReload>
 
-      <Countries>
+      <Countries >
         {currentCountries.map((el) => {
           return (
             <Card

@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion/dist/framer-motion"
 
-export const CardDiv = styled.div`
+export const CardDiv = styled(motion.div)`
   width: 320px;
   height: 200x;
   scale: 80%;

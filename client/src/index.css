@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: rgb(131, 181, 209);
+  background-color: rgb(161,198,234);  /*  rgb(0,126,167) variante zul oscuro */
   background-image: url("./styles/countries.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -19,3 +19,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion/dist/framer-motion"
 
-export const TitleDiv = styled.div`
+export const TitleDiv = styled(motion.div)`
   color: aliceblue;
   border: none;
   background-color: rgba(15, 15, 15);

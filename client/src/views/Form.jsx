@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivities } from "../redux/actions";
 import style from "../styles/Form.module.css";
 import validate from "./FormValidation";
-import { Background, ButtonsDiv, Title } from "./FormStyle";
+import { Background, ButtonsDiv } from "./FormStyle";
 import { motion } from "framer-motion/dist/framer-motion";
 
 const Form = () => {

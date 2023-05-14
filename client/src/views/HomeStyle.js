@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { motion } from "framer-motion/dist/framer-motion"
 
 export const Home = styled.div`
-  transition: 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -webkit-transition: background-image 0.2s ease-in-out;
 `;
 
 export const LinkAndReload = styled.div`
@@ -25,6 +27,8 @@ export const LinkAndReload = styled.div`
       #9a9a9a 51%,
       #6a6a6a 100%
     );
+
+
   }
   .firstRow {
     display: flex;
@@ -35,7 +39,7 @@ export const LinkAndReload = styled.div`
   }
 `;
 
-export const ButtontoForm = styled.button`
+export const ButtontoActivities = styled(motion.button)`
   border: none;
   padding: 10px;
   cursor: pointer;
@@ -46,16 +50,6 @@ export const ButtontoForm = styled.button`
   width: 60%;
   height: 100%;
   transition: 0.5s;
-
-  :hover {
-    border: none;
-    background-image: linear-gradient(
-      45deg,
-      #9a9a9a 0%,
-      #6a6a6a 51%,
-      #9a9a9a 100%
-    );
-  }
 `;
 
 export const Filters = styled.div`
@@ -84,7 +78,6 @@ export const Filters = styled.div`
     border: none;
   }
 `;
-
 export const Countries = styled.div`
     display: grid;
 	  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -94,5 +87,8 @@ export const Countries = styled.div`
     transition: 1s;
   
 `;
+
+/* initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }} */
 
 
