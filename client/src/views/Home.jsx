@@ -53,8 +53,15 @@ const Landing = () => {
   ///////////////////handlers/////////////////////////////////
 
   function handleFilterContinent(event) {
+    let check = filtro.includes(event.target.id)
+  if (check) {
+    setFiltro(filtro.replace(event.target.id,"")) 
+    dispatch(filterCountriesByContinent(filtro.replace(event.target.id,"")));
+  } else {
+    console.log("esto");
     setFiltro(filtro + (event.target.id)) 
     dispatch(filterCountriesByContinent(filtro + (event.target.id)));
+  }
     setContador(contador+1)
     setCurrentPage(1);
   }
@@ -86,10 +93,6 @@ const Landing = () => {
     setFiltro("All");
   }, [dispatch]);
 
-  function handleClick(event) {
-    event.preventDefault();
-    dispatch(getCountries());
-  }
 
 
 
@@ -103,18 +106,16 @@ const Landing = () => {
         <LinkAndReload>
           <div className="firstRow">
             <Link to="/activities">
-              <ButtontoActivities whileHover={{ opacity: 0 }}>
+              <ButtontoActivities whileHover={{ opacity: 0.8 }}>
                 Go to Activities
               </ButtontoActivities>
             </Link>
             <SearchBar setCurrentPage={setCurrentPage} />
-            <button
-              onClick={(e) => {
-                handleClick(e);
-              }}
-            >
-              Reload Countries
-            </button>
+            <Link to="/">
+            <ButtontoActivities>
+              Back to Landing
+            </ButtontoActivities>
+            </Link>
           </div>
           <Filters>
             <select onChange={(e) => handleOrderByName(e)}>
@@ -187,7 +188,6 @@ const Landing = () => {
             Antarctica
           </div>
         </Continents>
-
         <Countries>
           {currentCountries.map((el) => {
             return (

@@ -1,28 +1,27 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import style from "../styles/Landing.module.css"
-import { motion } from "framer-motion/dist/framer-motion"
+import globeVideo from "../components/Images/glovevideo.mp4";
+import { Background, Bienvenido, VideoGlobe } from "./LandingStyle";
 
 const Landing = () => {
-    return (
-
-<motion.div
-    initial={{scaleY:0}}
-    animate={{scaleY:1}}
-    exit={{scaleY:0, transition:{duration:0.1}}}
+  return (
+    <Background
+      initial={{ scaleY: 0 }}
+      animate={{ scaleY: 1 }}
+      exit={{ scaleY: 0, transition: { duration: 0.1 } }}
     >
+      <Link to="/home">
+        <Bienvenido
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 , transition: { duration: 1, delay: 2 } }}
+          exit={{ opacity: 1, transition: { duration: 0.1 } }}
+        >
+          WELCOME
+        </Bienvenido>
+      </Link>
 
-    <div className={style.background}>
-
-      <div className={style.titleImg}></div>
-
-      <div className={style.landing}>
-        <Link to="/home">
-          <button title="enter">Home</button>
-        </Link>
-      </div>
-    </div>
-    </motion.div>
-    )
-}
+      <VideoGlobe src={globeVideo} alt="glovevideo" autoPlay loop muted />
+    </Background>
+  );
+};
 export default Landing;
