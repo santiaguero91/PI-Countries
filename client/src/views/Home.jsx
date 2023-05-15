@@ -26,8 +26,7 @@ const Landing = () => {
 
   /////* PAGINATION  *//////
   const [currentPage, setCurrentPage] = useState(1);
-  const [filter, setFilter] = useState("");
-
+  
   // eslint-disable-next-line
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -38,7 +37,10 @@ const Landing = () => {
   const currentCountries = allCountries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
-  );
+    );
+    
+    const [filtro, setFiltro] = useState("All");
+    const [contador, setContador] = useState(0);
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -51,11 +53,18 @@ const Landing = () => {
   ///////////////////handlers/////////////////////////////////
 
   function handleFilterContinent(event) {
-    dispatch(filterCountriesByContinent(event.target.id));
-    setFilter(event.target.id);
+    setFiltro(filtro + (event.target.id)) 
+    dispatch(filterCountriesByContinent(filtro + (event.target.id)));
+    setContador(contador+1)
     setCurrentPage(1);
   }
 
+  function handleNoFilter(event) {
+    setFiltro("All") 
+    dispatch(filterCountriesByContinent(event.target.id));
+    setCurrentPage(1);
+    setContador(contador+1)
+  }
   function handleOrderByName(event) {
     event.preventDefault();
     dispatch(orderByName(event.target.value));
@@ -74,7 +83,7 @@ const Landing = () => {
 
   useEffect(() => {
     dispatch(getCountries());
-    setFilter("All");
+    setFiltro("All");
   }, [dispatch]);
 
   function handleClick(event) {
@@ -82,9 +91,7 @@ const Landing = () => {
     dispatch(getCountries());
   }
 
-  function ver() {
-    console.log(filter);
-  }
+
 
   return (
     <motion.div
@@ -124,64 +131,62 @@ const Landing = () => {
         </LinkAndReload>
         <Continents>
           <div
-            className={`${filter === "All" ? "special" : ""}`}
-            onClick={(e) => handleFilterContinent(e)}
+            className={`${filtro === "All" ? "special" : ""}`}
+            onClick={(e) => handleNoFilter(e)}
             id="All"
           >
             ALL
           </div>
           <div
-            className={`${filter === "Africa" ? "special" : ""}`}
+            className={`${filtro.includes("Africa") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="Africa"
           >
             AFRICA
           </div>
           <div
-            className={`${filter === "South America" ? "special" : ""}`}
+            className={`${filtro.includes("South America") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="South America"
           >
             South America
           </div>
           <div
-            className={`${filter === "North America" ? "special" : ""}`}
+            className={`${filtro.includes("North America") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="North America"
           >
             North America
           </div>
           <div
-            className={`${filter === "Asia" ? "special" : ""}`}
+            className={`${filtro.includes("Asia") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="Asia"
           >
             Asia
           </div>
           <div
-            className={`${filter === "Europe" ? "special" : ""}`}
+            className={`${filtro.includes("Europe") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="Europe"
           >
             Europe
           </div>
           <div
-            className={`${filter === "Oceania" ? "special" : ""}`}
+            className={`${filtro.includes("Oceania") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="Oceania"
           >
             Oceania
           </div>
           <div
-            className={`${filter === "Antarctica" ? "special" : ""}`}
+            className={`${filtro.includes("Antarctica") ? "special" : ""}`}
             onClick={(e) => handleFilterContinent(e)}
             id="Antarctica"
           >
             Antarctica
           </div>
         </Continents>
-        {/*             <button onClick={(e) => ver(e)}>VER</button>
-         */}
 
         <Countries>
           {currentCountries.map((el) => {
