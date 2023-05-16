@@ -8,13 +8,15 @@ const Card = ({ imgFlag, name, id, population, continent }) => {
     initial={{ opacity: 0 }} 
     whileInView={{ opacity: 1 , 
     transition:{duration:0.5}}}  >
-      <div>
-        <Stats>
-          <img src={imgFlag} alt="img not found" />
-          <p>{name}</p>
+      <div >
+        <Stats
+className={`${continent==="South America"? "Samerica" : continent} || ${continent==="North America"? "Namerica" : continent} || ${continent==="Antarctica"? "Antarctica" : continent}`} 
+>
+    <img src={imgFlag} alt="img not found" />
+          <div></div>
         </Stats>
-        <p>Continent : {continent}</p>
-        <p>Poblacion : {population.toLocaleString("es-ES")}</p>
+        <p>{name}</p>
+        <p>Population : {population.toLocaleString("es-ES")}</p>
       </div>
       <Link to={`/detail/${id}`}>
         <Button>
