@@ -72,33 +72,6 @@ export const ButtontoActivities = styled(motion.button)`
   height: 100%;
   transition: 0.5s;
 `;
-
-export const Filters = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
-
-  select {
-    cursor: pointer;
-    height: 35px;
-    width: fit-content;
-    border: none;
-    border-radius: 30px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    margin-top: 1rem;
-    font-weight: 700;
-    padding: 10px 20px;
-    font-weight: 700;
-    outline: none;
-    margin-bottom: 10px;
-    background-color: rgba(88, 129, 87);
-
-    appearance: none;
-    border: none;
-  }
-`;
 export const Countries = styled.div`
     display: grid;
 	  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -108,6 +81,28 @@ export const Countries = styled.div`
     transition: 1s;
   
 `;
+
+
+export const Ordenamientos = styled.div`
+  button{
+    background-color: rgba(88, 129, 87);
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 15px;
+    font-weight: 800;
+    padding: 5px;
+  }
+  .special{
+    background-color: darkorchid;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 15px;
+    font-weight: 800;
+    padding: 5px;
+  }
+
+`;
+
 
 /* initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }} */

@@ -14,9 +14,9 @@ import {
   ButtontoActivities,
   Continents,
   Countries,
-  Filters,
   Home,
   LinkAndReload,
+  Ordenamientos,
 } from "./HomeStyle";
 import { motion } from "framer-motion/dist/framer-motion";
 
@@ -25,8 +25,8 @@ const Landing = () => {
   const allCountries = useSelector((state) => state.countries);
 
   /////* PAGINATION  *//////
+  const [ordenamiento, setOrdenamiento] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  
   // eslint-disable-next-line
   const [countriesPerPage, setCountriesPerPage] = useState(10);
   /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -37,10 +37,10 @@ const Landing = () => {
   const currentCountries = allCountries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
-    );
-    
-    const [filtro, setFiltro] = useState("All");
-    const [contador, setContador] = useState(0);
+  );
+
+  const [filtro, setFiltro] = useState("All");
+  const [contador, setContador] = useState(0);
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -53,27 +53,32 @@ const Landing = () => {
   ///////////////////handlers/////////////////////////////////
 
   function handleFilterContinent(event) {
-    let check = filtro.includes(event.target.id)
-  if (check) {
-    setFiltro(filtro.replace(event.target.id,"")) 
-    dispatch(filterCountriesByContinent(filtro.replace(event.target.id,"")));
-  } else {
-    console.log("esto");
-    setFiltro(filtro + (event.target.id)) 
-    dispatch(filterCountriesByContinent(filtro + (event.target.id)));
-  }
-    setContador(contador+1)
+    let check = filtro.includes(event.target.id);
+    if (check) {
+      setFiltro(filtro.replace(event.target.id, ""));
+      dispatch(filterCountriesByContinent(filtro.replace(event.target.id, "")));
+    } else {
+      console.log("esto");
+      setFiltro(filtro + event.target.id);
+      dispatch(filterCountriesByContinent(filtro + event.target.id));
+    }
+    setContador(contador + 1);
     setCurrentPage(1);
   }
 
+  function ver(event) {
+    console.log(ordenamiento);
+  }
+
   function handleNoFilter(event) {
-    setFiltro("All") 
+    setFiltro("All");
     dispatch(filterCountriesByContinent(event.target.id));
     setCurrentPage(1);
-    setContador(contador+1)
+    setContador(contador + 1);
   }
   function handleOrderByName(event) {
     event.preventDefault();
+    setOrdenamiento(event.target.id);
     dispatch(orderByName(event.target.value));
     setCurrentPage(1);
     setOrden(`Ordenado ${event.target.value}`);
@@ -81,6 +86,7 @@ const Landing = () => {
 
   function handleOrderByPopulation(event) {
     event.preventDefault();
+    setOrdenamiento(event.target.id);
     dispatch(orderByPopulation(event.target.value));
     setCurrentPage(1);
     setOrden(`Ordenado ${event.target.value}`);
@@ -92,9 +98,6 @@ const Landing = () => {
     dispatch(getCountries());
     setFiltro("All");
   }, [dispatch]);
-
-
-
 
   return (
     <motion.div
@@ -112,23 +115,9 @@ const Landing = () => {
             </Link>
             <SearchBar setCurrentPage={setCurrentPage} />
             <Link to="/">
-            <ButtontoActivities>
-              Back to Landing
-            </ButtontoActivities>
+              <ButtontoActivities>Back to Landing</ButtontoActivities>
             </Link>
           </div>
-          <Filters>
-            <select onChange={(e) => handleOrderByName(e)}>
-              <option value="asc">A-Z</option>
-              <option value="desc">Z-A</option>
-            </select>
-
-            <select onChange={(e) => handleOrderByPopulation(e)}>
-              <option>Order by population</option>
-              <option value="asc">Population increase</option>
-              <option value="desc">Population decrease</option>
-            </select>
-          </Filters>
         </LinkAndReload>
         <Continents>
           <div
@@ -188,6 +177,42 @@ const Landing = () => {
             Antarctica
           </div>
         </Continents>
+
+        <Ordenamientos>
+          <button
+            className={`${ordenamiento === String(1) ? "special" : ""}`}
+            onClick={(e) => handleOrderByName(e)}
+            value="asc"
+            id="1"
+          >
+            A-Z
+          </button>
+          <button
+            className={`${ordenamiento === String(2) ? "special" : ""}`}
+            onClick={(e) => handleOrderByName(e)}
+            value="desc"
+            id="2"
+          >
+            Z-A
+          </button>
+          <button
+            className={`${ordenamiento === String(3) ? "special" : ""}`}
+            onClick={(e) => handleOrderByPopulation(e)}
+            value="asc"
+            id="3"
+          >
+            Population increase
+          </button>
+          <button
+            className={`${ordenamiento === String(4) ? "special" : ""}`}
+            onClick={(e) => handleOrderByPopulation(e)}
+            value="desc"
+            id="4"
+          >
+            Population decrease
+          </button>
+        </Ordenamientos>
+
         <Countries>
           {currentCountries.map((el) => {
             return (

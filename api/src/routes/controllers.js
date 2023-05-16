@@ -1,5 +1,5 @@
 const axios = require ("axios");
-const { Activity, Country } = require("../db")
+const { Country } = require("../db")
 
 
 const getApiInfo = async() => {
