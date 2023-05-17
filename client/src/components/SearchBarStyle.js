@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
-export const Input = styled.input`
-  border: none;
-  background-color: rgba(255, 255, 255, 0.8);
-  height: 2.5rem;
-  width: 16rem;
-  border-radius: 20px;
-  font-weight: 700;
+export const SearchBarDiv = styled.div`
+  background-color: #202124;
+  border-radius: 24px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  max-width: 100%;
 `;
 
-export const Button = styled.button`
-  background-color: rgba(167, 167, 167, 0.9);
-  border-radius: 10px;
-  padding: 5px 5px;
-  height: fit-content;
-  font-weight: 900;
-  font-size: medium;
+
+export const Input = styled.input`
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  flex: 1;
+`;
+
+export const Button = styled.div`
+  background-color: transparent;
+color: white;  
+border: none;
 `;
