@@ -1,4 +1,6 @@
 require('dotenv').config();
+const pg = require('pg')
+
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
@@ -9,6 +11,13 @@ const {
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  dialectModule: pg,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // Esta propiedad es necesaria si estás usando SSL con un certificado autofirmado
+      }
+    }
 });
 const basename = path.basename(__filename);
 
