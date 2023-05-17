@@ -66,9 +66,6 @@ const Landing = () => {
     setCurrentPage(1);
   }
 
-  function ver(event) {
-    console.log(ordenamiento);
-  }
 
   function handleNoFilter(event) {
     setFiltro("All");

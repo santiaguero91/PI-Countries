@@ -11,20 +11,11 @@ export const Buttons = styled.button`
     border-radius: 20px;
     width: 8%;
     transition: 0.5s;
-    background-image: linear-gradient(
-      45deg,
-      #6a6a6a 0%,
-      #9a9a9a 51%,
-      #6a6a6a 100%
-    );
+
     :hover{
     border: none;
-    background-image: linear-gradient(
-      45deg,
-      #9a9a9a 0%,
-      #6a6a6a 51%,
-      #9a9a9a 100%
-    );
+    background-color: rgba(150, 150, 150, 0.9);
+
 }
 `;
 
@@ -53,12 +44,8 @@ transition: 0.5s;
 }
 button:hover{
     border: none;
-    background-image: linear-gradient(
-      45deg,
-      #9a9a9a 0%,
-      #6a6a6a 51%,
-      #9a9a9a 100%
-    );
+    background-color: rgba(150, 150, 150, 0.9);
+
 }
 
 button.active{
