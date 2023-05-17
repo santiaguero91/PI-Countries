@@ -109,9 +109,7 @@ const Landing = () => {
         <LinkAndReload>
           <div className="firstRow">
             <Link to="/activities">
-              <ButtontoActivities whileHover={{ opacity: 0.8 }}>
-                Go to Activities
-              </ButtontoActivities>
+              <ButtontoActivities>Go to Activities</ButtontoActivities>
             </Link>
             <SearchBar setCurrentPage={setCurrentPage} />
             <Link to="/">

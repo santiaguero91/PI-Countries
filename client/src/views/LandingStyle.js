@@ -15,17 +15,17 @@ z-index: 1;
 export const Bienvenido = styled(motion.div)`
 z-index: 3;
 position: absolute;
-margin: 20% 40%;
+margin:  10% 35%;
 background: transparent;
 font-size: 50px;
-color: white;
-  cursor: pointer;
+    border: 2px solid white;
+      cursor: pointer;
 border: 2px solid white;
 padding: 2px 8px;
 transition: 0.5s;
 font-weight: 700;
 :hover{
-    color: yellowgreen;
+    border: 2px solid yellowgreen;
 }
 
 `;

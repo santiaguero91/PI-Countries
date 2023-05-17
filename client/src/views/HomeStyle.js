@@ -51,8 +51,8 @@ cursor: pointer;
 border: none;
 div{
   padding: 4px;
-  background-color: darkcyan;
-  font-size: 16px;
+  background-color: rgb(89,89,89);
+  font-size: 15px;
   font-weight: 700;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;}
 .special{
@@ -60,17 +60,19 @@ div{
 }
 
 `;
-export const ButtontoActivities = styled(motion.button)`
+export const ButtontoActivities = styled(motion.div)`
   border: none;
   padding: 10px;
   cursor: pointer;
-  background-color: rgba(111, 111, 111, 0.9);
-  font-weight: 800;
+  background-color: rgba(89, 89, 89);
   margin: 0px 5rem;
-  border-radius: 20px;
-  width: 60%;
-  height: 100%;
+  border-radius: 10px;
+  width: 50%;
+  height: fit-content;
+  font-size: 18px;
+  font-weight: 800;
   transition: 0.5s;
+
 `;
 export const Countries = styled.div`
     display: grid;
@@ -85,6 +87,7 @@ export const Countries = styled.div`
 
 export const Ordenamientos = styled.div`
   button{
+    cursor: pointer;
     background-color: rgba(88, 129, 87);
     border: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import globeVideo from "../components/Images/glovevideo.mp4";
 import { Background, Bienvenido, VideoGlobe } from "./LandingStyle";
+import logo from "../components/Images/logo.png";
 
 const Landing = () => {
   return (
@@ -16,7 +17,7 @@ const Landing = () => {
           animate={{ scaleY: 1 , transition: { duration: 1, delay: 2 } }}
           exit={{ opacity: 1, transition: { duration: 0.1 } }}
         >
-          WELCOME
+          <img width="400px"src={logo} alt="logo"/>
         </Bienvenido>
       </Link>
 
