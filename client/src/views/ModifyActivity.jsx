@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries, putActivities } from "../redux/actions";
 import style from "../styles/Form.module.css";
 import validate from "./FormValidation";
-import { Background, ButtonsDiv } from "./FormStyle";
+import { Background, ButtonsDiv, Clean } from "./FormStyle";
 import { motion } from "framer-motion/dist/framer-motion";
 
 const ModifyActivity = () => {
@@ -42,7 +42,13 @@ const ModifyActivity = () => {
       })
     );
   };
-
+  const clean = (e) => {
+    e.preventDefault();
+    setInput({
+      ...input,
+      country: [],
+    });
+  };
   const handleCheck = (e) => {
     if (e.target.checked) {
       setInput({
@@ -205,10 +211,13 @@ const ModifyActivity = () => {
           )}
 
           <div className={style.divblance}>
-            <h3>Paises Seleccionados</h3>
+          <h3>Countries Selected</h3>
             <ul>
               <li>{input.country.map((el) => el + "  , ")}</li>
             </ul>
+            {input.country.length !== 0 && (
+              <Clean onClick={(e) => clean(e)}>Clean</Clean>
+            )}
           </div>
           <div>
             <label>Add Image:</label>

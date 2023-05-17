@@ -29,7 +29,7 @@ h4{
 
 export const ButtonsDiv = styled.div`
   
-    background-color: darkcyan;
+  background-color: rgba(89, 89, 89);
     border: none;
     border-radius: 10px;
     width: fit-content;
@@ -40,6 +40,23 @@ export const ButtonsDiv = styled.div`
     transition: 1s;
 
     :hover{
-        background-color: darkmagenta;
+      background-color: rgba(150, 150, 150);
+    }
+  `;
+
+export const Clean = styled.div`
+  cursor: pointer;
+  background-color: rgb(35,35,35);
+    border: none;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    margin: 0 auto ;
+    font-weight: 800;
+    transition: 1s;
+
+    :hover{
+  background-color: rgb(50,50,50);
     }
   `;

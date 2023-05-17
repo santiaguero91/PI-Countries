@@ -18,7 +18,7 @@ export const ButtonsDiv = styled(motion.div)`
   .linkToHome,
   .linkToForm,
   select {
-    background-color: darkcyan;
+    background-color: rgba(111, 111, 111);
     border: none;
     border-radius: 10px;
     width: fit-content;
@@ -27,7 +27,7 @@ export const ButtonsDiv = styled(motion.div)`
     font-weight: 800;
     transition: 1s;
     :hover {
-      background-color: darkmagenta;
+      background-color: rgba(150, 150, 150);
     }
   }
 `;

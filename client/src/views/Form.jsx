@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivities } from "../redux/actions";
 import style from "../styles/Form.module.css";
 import validate from "./FormValidation";
-import { Background, ButtonsDiv } from "./FormStyle";
+import { Background, ButtonsDiv, Clean } from "./FormStyle";
 import { motion } from "framer-motion/dist/framer-motion";
 
 const Form = () => {
@@ -70,6 +70,14 @@ const Form = () => {
     );
   };
 
+  const clean = (e) => {
+    e.preventDefault();
+    setInput({
+      ...input,
+      country: [],
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -92,9 +100,9 @@ const Form = () => {
 
   return (
     <motion.div
-    initial={{scaleY:0}}
-    animate={{scaleY:1}}
-    exit={{scaleY:0, transition:{duration:0.1}}}
+      initial={{ scaleY: 0 }}
+      animate={{ scaleY: 1 }}
+      exit={{ scaleY: 0, transition: { duration: 0.1 } }}
     >
       <Background>
         <Link to="/activities">
@@ -207,6 +215,9 @@ const Form = () => {
             </ul>
             {input.country.length === 0 && (
               <p className={style.alert}>{errors.country}</p>
+            )}
+            {input.country.length !== 0 && (
+              <Clean onClick={(e) => clean(e)}>Clean</Clean>
             )}
           </div>
 

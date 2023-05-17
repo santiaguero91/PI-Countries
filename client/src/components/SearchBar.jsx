@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchCountryName } from "../redux/actions";
-import { Button, Input, Search, SearchBarDiv } from "./SearchBarStyle";
+import { Button, Input, SearchBarDiv } from "./SearchBarStyle";
 import { BsSearch } from "react-icons/bs";
 
 
