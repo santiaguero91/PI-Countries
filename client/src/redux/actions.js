@@ -3,7 +3,7 @@ import axios from "axios";
 import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
 
 
-const Url = `https://pi-countries-api-santiaguero91.vercel.app`
+const Url = `https://pi-countries-6hl8zs0v6-santiaguero91.vercel.app`
 
 export function getCountries(){
     return async function(dispatch) {
@@ -13,6 +13,18 @@ export function getCountries(){
             type: GET_COUNTRIES,
             payload: json.data
         })
+    } catch (error){
+        console.log(error);
+    }
+    }
+}
+
+export function getApi(){
+    return async function() {
+        try {
+        let json = await axios.get(`${Url}/countries/api`);
+        console.log("ya ta");
+        return json
     } catch (error){
         console.log(error);
     }

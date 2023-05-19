@@ -1,5 +1,6 @@
 const { Router } = require('express');
-const { Activity, Country } = require("../db")
+const { Activity, Country } = require("../db");
+const getApiInfo = require('./controllers');
 const router = Router();
 //////////////////////////////////////////////
 
@@ -24,6 +25,10 @@ router.get("/", async(req,res) => {
     } else{
         res.status(200).send(countriesTotal)
     }
+})
+
+router.get("/api", async(req,res) => {
+    getApiInfo()
 })
 
 router.get("/:id", async(req,res) => {

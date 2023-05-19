@@ -1,10 +1,22 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import globeVideo from "../components/Images/glovevideo.mp4";
 import { Background, Bienvenido, VideoGlobe } from "./LandingStyle";
 import logo from "../components/Images/logo.png";
+import { useDispatch } from "react-redux";
+import { getApi } from "../redux/actions";
+
+
+
 
 const Landing = () => {
+  const dispatch = useDispatch();
+
+  
+  useEffect(() => {
+    dispatch(getApi());
+  }, [dispatch]);
+
   return (
     <Background
       initial={{ scaleY: 0 }}
