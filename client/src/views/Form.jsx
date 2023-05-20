@@ -222,7 +222,7 @@ const Form = () => {
           </div>
 
           <div>
-            <label>Agregar Imagen:</label>
+            <label>Add Image:</label>
             <input
               placeholder="This is optional"
               id="inputimg"

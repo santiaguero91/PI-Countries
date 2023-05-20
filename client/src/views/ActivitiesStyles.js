@@ -4,11 +4,10 @@ import { motion } from "framer-motion/dist/framer-motion";
 export const TitleDiv = styled(motion.div)`
   color: aliceblue;
   border: none;
-  background-color: rgba(15, 15, 15);
-  border-radius: 30px;
+  background-color: rgba(15, 15, 15,0.7);
+  border-radius: 0;
   padding: 15px;
-  width: 25%;
-  margin: 20px auto 20px auto;
+  width: 100%;
   font-size: larger;
 `;
 
@@ -26,6 +25,7 @@ export const ButtonsDiv = styled(motion.div)`
     padding: 10px;
     font-weight: 800;
     transition: 1s;
+    margin: 0 10px;
     :hover {
       background-color: rgba(150, 150, 150);
     }
