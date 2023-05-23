@@ -3,7 +3,7 @@ import axios from "axios";
 import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_BY_SEASON, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_NAME, GET_ACTIVITIES, GET_COUNTRY_ID} from "./action-types";
 
 
-const Url = `https://pi-countries-api-santiaguero91.vercel.app`
+const Url = `https://pi-countries-9ubikc3t4-santiaguero91.vercel.app/countries`
 
 export function getCountries(){
     return async function(dispatch) {
